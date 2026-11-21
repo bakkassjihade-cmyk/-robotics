@@ -48,11 +48,11 @@ footer{text-align:center;color:var(--muted);padding:35px 15px;border-top:1px sol
 <div class="hero-art">🦾</div>
 </div>
 <div class="stats">
-<div class="stat"><strong id="homeDone">0 / 10</strong><small>الدروس المكتملة</small></div>
+<div class="stat"><strong id="homeDone">0 / 26</strong><small>الدروس المكتملة</small></div>
 <div class="stat"><strong id="homePoints">0</strong><small>النقاط</small></div>
 <div class="stat"><strong id="homePercent">0%</strong><small>نسبة التقدم</small></div>
 </div>
-<div class="section-title"><h2>مسار التعلم</h2><span class="muted" id="homeCountLabel">10 دروس مرتبة</span></div>
+<div class="section-title"><h2>مسار التعلم</h2><span class="muted" id="homeCountLabel">26 درساً مرتباً</span></div>
 <div class="progress-wrap"><div class="progress-bar" id="homeBar"></div></div>
 <div class="grid" id="homeLessons"></div>
 </section>
@@ -80,208 +80,39 @@ footer{text-align:center;color:var(--muted);padding:35px 15px;border-top:1px sol
 
 <script>
 const lessons = [
-  {
-    title: "التعرف على القطع وطريقة الربط",
-    icon: "🔌",
-    desc: "بداية بدون برمجة: تعرف على القطع وكيفية توصيلها.",
-    theory: [
-      "لوحة Arduino Uno: لوحة إلكترونية تتحكم في المشروع.",
-      "لوحة التجارب Breadboard: تساعد على تركيب القطع دون لحام.",
-      "أسلاك Jumper: تربط بين اللوحة والقطع.",
-      "LED: مصباح صغير يصدر الضوء.",
-      "المقاومة Resistor: تحد من مرور التيار وتحمي بعض القطع."
-    ],
-    steps: [
-      "تعرف على شكل لوحة Arduino Uno ومداخلها.",
-      "تعرف على لوحة التجارب وكيف تتصل الثقوب داخل الصفوف.",
-      "تعرف على السلك الموجب والسالب في الدارة.",
-      "لاحظ أن LED له طرفان، ويجب احترام اتجاهه.",
-      "افهم أن المقاومة توضع لحماية LED."
-    ],
-    question: "ما الدور الأساسي للمقاومة في دارة LED؟",
-    answers: ["زيادة التيار بلا حدود", "الحد من التيار وحماية LED", "تخزين البرامج"],
-    correct: 1,
-    first: true
-  },
-  {
-    title: "أساسيات الإلكترونيات",
-    icon: "⚡",
-    desc: "تعرف على التيار والجهد والمقاومة والدارة الكهربائية.",
-    theory: [
-      "التيار الكهربائي هو تدفق الشحنات في الدارة.",
-      "الجهد هو فرق الطاقة الكهربائية بين نقطتين.",
-      "المقاومة تعيق مرور التيار بدرجة معينة.",
-      "الدارة المغلقة تسمح بمرور التيار، والمفتوحة تقطعه."
-    ],
-    steps: [
-      "ارسم دارة بسيطة فيها مصدر طاقة ومقاومة وLED.",
-      "حدد مسار التيار في الرسم.",
-      "ميّز بين الدارة المفتوحة والمغلقة."
-    ],
-    question: "متى يمكن للتيار أن يمر في دارة بسيطة؟",
-    answers: ["عندما تكون الدارة مغلقة", "عندما يكون السلك مقطوعاً", "عندما لا يوجد مصدر طاقة"],
-    correct: 0
-  },
-  {
-    title: "التعرف على لوحة Arduino",
-    icon: "🧩",
-    desc: "تعرف على أجزاء لوحة الأردوينو ومداخلها ومخارجها.",
-    theory: [
-      "Arduino Uno لوحة تطوير تستقبل المعلومات وتتحكم في المكونات.",
-      "المداخل الرقمية تقرأ حالات مثل تشغيل/إيقاف.",
-      "المداخل التناظرية تقرأ قيماً متغيرة من بعض الحساسات.",
-      "منافذ الطاقة توفر الجهد المناسب حسب مواصفات اللوحة."
-    ],
-    steps: [
-      "تعرف على منفذ USB.",
-      "ابحث عن المنافذ الرقمية المكتوب بجانبها أرقام.",
-      "تعرف على مداخل الطاقة و GND.",
-      "لا توصل أي قطعة قبل التأكد من الجهد والتوصيل الصحيح."
-    ],
-    question: "ما وظيفة منفذ GND؟",
-    answers: ["الأرضي أو المرجع الكهربائي", "تخزين الصور", "الاتصال بالإنترنت دائماً"],
-    correct: 0
-  },
-  {
-    title: "الحساسات Sensors",
-    icon: "📡",
-    desc: "اكتشف كيف يستشعر الروبوت البيئة المحيطة.",
-    theory: [
-      "الحساس يحول ظاهرة من البيئة إلى إشارة يمكن للنظام قراءتها.",
-      "حساس المسافة بالموجات فوق الصوتية يقدّر بعد الأجسام.",
-      "حساس الضوء يقيس شدة الإضاءة.",
-      "حساس الحرارة يقيس درجة الحرارة."
-    ],
-    steps: [
-      "اختر نوع الحساس المناسب للمعلومة التي تريد قياسها.",
-      "حدد أطراف الطاقة والأرضي والإشارة حسب ورقة الحساس.",
-      "تأكد من توافق جهد الحساس مع لوحة التحكم."
-    ],
-    question: "أي حساس يمكن استعماله لتقدير بُعد جسم؟",
-    answers: ["حساس المسافة", "حساس الحرارة", "LED"],
-    correct: 0
-  },
-  {
-    title: "المحركات Motors",
-    icon: "⚙️",
-    desc: "تعرف على المحركات ودورها في تحريك الروبوت.",
-    theory: [
-      "المحرك يحول الطاقة الكهربائية إلى حركة.",
-      "محرك DC يدور عند تغذيته بالطاقة المناسبة.",
-      "السيرفو يسمح بالتحكم في زاوية محددة ضمن مجاله.",
-      "قد تحتاج المحركات إلى دائرة قيادة مناسبة، لأن اللوحة لا تغذي كل المحركات مباشرة."
-    ],
-    steps: [
-      "تعرف على الفرق بين محرك DC ومحرك Servo.",
-      "اقرأ الجهد والتيار المناسبين للمحرك.",
-      "استعمل وحدة قيادة مناسبة عند الحاجة."
-    ],
-    question: "أي محرك يُستخدم غالباً للتحكم في زاوية محددة؟",
-    answers: ["Servo", "LED", "مقاومة"],
-    correct: 0
-  },
-  {
-    title: "مقدمة في برمجة Arduino",
-    icon: "💻",
-    desc: "افهم فكرة البرنامج وكيف يوجّه اللوحة.",
-    theory: [
-      "البرنامج عبارة عن تعليمات تنفذها لوحة التحكم.",
-      "الدالة setup تنفذ مرة عند بدء التشغيل.",
-      "الدالة loop تتكرر باستمرار.",
-      "يجب اختيار اللوحة والمنفذ الصحيحين عند رفع البرنامج."
-    ],
-    steps: [
-      "تعرف على بيئة Arduino IDE.",
-      "افهم الفرق بين setup و loop.",
-      "ابدأ بتجربة مثال Blink الرسمي بعد فهم التوصيلات."
-    ],
-    question: "أي دالة تتكرر باستمرار في برنامج Arduino؟",
-    answers: ["loop", "setup", "startOnly"],
-    correct: 0
-  },
-  {
-    title: "أنظمة التحكم",
-    icon: "🎛️",
-    desc: "تعرف على العلاقة بين الحساس والقرار والتنفيذ.",
-    theory: [
-      "نظام التحكم يستقبل بيانات، يعالجها، ثم ينفذ أمراً.",
-      "الحساس يقدم معلومات عن البيئة.",
-      "المتحكم يتخذ القرار وفق التعليمات.",
-      "المشغل مثل المحرك ينفذ الحركة."
-    ],
-    steps: [
-      "حدد ما الذي سيقيسه الحساس.",
-      "حدد القرار الذي سيتخذه المتحكم.",
-      "حدد الفعل الذي سينفذه المحرك أو المصباح.",
-      "فكر كيف يمكن للنظام تعديل فعله حسب القراءة."
-    ],
-    question: "ما الترتيب المنطقي لنظام تحكم بسيط؟",
-    answers: ["حساس ← متحكم ← مشغل", "مشغل ← حساس ← بطارية فقط", "مقاومة ← شاشة ← حساس"],
-    correct: 0
-  },
-  {
-    title: "مشروع سيارة روبوت",
-    icon: "🚗",
-    desc: "اجمع ما تعلمته في تصور مشروع سيارة روبوت بسيطة.",
-    theory: [
-      "تتكون السيارة التعليمية من هيكل ومحركات وعجلات ومتحكم ومصدر طاقة.",
-      "يمكن إضافة حساس مسافة لمساعدة السيارة على ملاحظة العوائق.",
-      "يجب التحقق من توافق مصدر الطاقة والمحركات ووحدة القيادة."
-    ],
-    steps: [
-      "حدد القطع التي يحتاجها المشروع.",
-      "خطط مكان تثبيت المحركات والبطارية ولوحة التحكم.",
-      "ارسم مخطط التوصيلات قبل التنفيذ.",
-      "اختبر كل جزء على حدة ثم اختبر المشروع كاملاً."
-    ],
-    question: "ما فائدة حساس المسافة في سيارة روبوت؟",
-    answers: ["ملاحظة العوائق وتقدير بعدها", "زيادة وزن السيارة", "تغيير لون الأسلاك"],
-    correct: 0
-  },
-  {
-    title: "أردوينو ببساطة: وميض LED وزر التحكم",
-    icon: "💡",
-    desc: "مثال عملي من كتاب أردوينو ببساطة لربط زر تحكم ومصباح LED.",
-    theory: [
-      "تُنفذ دالة setup مرة واحدة عند التشغيل وتُنفذ دالة loop باستمرار.",
-      "نستخدم digitalRead لقراءة حالة الزر وdigitalWrite لتشغيل أو إطفاء LED."
-    ],
-    steps: [
-      "وصّل LED بمقاومة حماية على المنفذ 13.",
-      "وصّل زر الضغط على المنفذ 2 مع مقاومة سحب إلى GND.",
-      "جرّب الكود في Wokwi وراقب استجابة LED."
-    ],
-    code: "const int ledPin = 13;\nconst int buttonPin = 2;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n  pinMode(buttonPin, INPUT);\n}\n\nvoid loop() {\n  if (digitalRead(buttonPin) == HIGH) {\n    digitalWrite(ledPin, HIGH);\n  } else {\n    digitalWrite(ledPin, LOW);\n  }\n}",
-    question: "ماذا يحدث في الكود عند الضغط على زر buttonPin؟",
-    answers: ["يضيء LED على المنفذ 13", "ينطفئ البرنامج بالكامل", "يتم فصل الكهرباء عن اللوحة"],
-    correct: 0
-  },
-  {
-    title: "أردوينو ببساطة: قراءة حساس تناظري وتحكم PWM",
-    icon: "🎚️",
-    desc: "قراءة قيمة متغيرة من A0 والتحكم في سطوع LED أو سرعة محرك عبر PWM.",
-    theory: [
-      "تقرأ analogRead قيماً من 0 إلى 1023 على المداخل التناظرية.",
-      "تحوّل map القيمة إلى مدى 0 إلى 255 لاستعمالها مع analogWrite."
-    ],
-    steps: [
-      "وصّل مقاومة متغيرة أو حساساً تناظرياً على A0.",
-      "وصّل LED على منفذ PWM مثل 9.",
-      "جرّب تغيير القيمة ولاحظ تغير السطوع."
-    ],
-    code: "const int sensorPin = A0;\nconst int ledPin = 9;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop() {\n  int val = analogRead(sensorPin);\n  int pwmVal = map(val, 0, 1023, 0, 255);\n  analogWrite(ledPin, pwmVal);\n}",
-    question: "ما المدى العددي الذي تقبله دالة analogWrite في أردوينو؟",
-    answers: ["0 إلى 255", "0 إلى 10", "1 إلى 5"],
-    correct: 0
-  }
+{title:"التعرف على القطع وطريقة الربط",icon:"🔌",desc:"بداية بدون برمجة: تعرف على القطع وكيفية توصيلها.",theory:["لوحة Arduino Uno: لوحة إلكترونية تتحكم في المشروع.","لوحة التجارب Breadboard: تساعد على تركيب القطع دون لحام.","أسلاك Jumper: تربط بين اللوحة والقطع.","LED: مصباح صغير يصدر الضوء.","المقاومة Resistor: تحد من مرور التيار وتحمي بعض القطع."],steps:["تعرف على شكل لوحة Arduino Uno ومداخلها.","تعرف على لوحة التجارب وكيف تتصل الثقوب داخل الصفوف.","تعرف على السلك الموجب والسالب في الدارة.","لاحظ أن LED له طرفان، ويجب احترام اتجاهه.","افهم أن المقاومة توضع لحماية LED."],question:"ما الدور الأساسي للمقاومة في دارة LED؟",answers:["زيادة التيار بلا حدود","الحد من التيار وحماية LED","تخزين البرامج"],correct:1,first:true},
+{title:"أساسيات الإلكترونيات",icon:"⚡",desc:"تعرف على التيار والجهد والمقاومة والدارة الكهربائية.",theory:["التيار الكهربائي هو تدفق الشحنات في الدارة.","الجهد هو فرق الطاقة الكهربائية بين نقطتين.","المقاومة تعيق مرور التيار بدرجة معينة.","الدارة المغلقة تسمح بمرور التيار، والمفتوحة تقطعه."],steps:["ارسم دارة بسيطة فيها مصدر طاقة ومقاومة وLED.","حدد مسار التيار في الرسم.","ميّز بين الدارة المفتوحة والمغلقة."],question:"متى يمكن للتيار أن يمر في دارة بسيطة؟",answers:["عندما تكون الدارة مغلقة","عندما يكون السلك مقطوعاً","عندما لا يوجد مصدر طاقة"],correct:0},
+{title:"التعرف على لوحة Arduino",icon:"🧩",desc:"تعرف على أجزاء لوحة الأردوينو ومداخلها ومخارجها.",theory:["Arduino Uno لوحة تطوير تستقبل المعلومات وتتحكم في المكونات.","المداخل الرقمية تقرأ حالات مثل تشغيل/إيقاف.","المداخل التناظرية تقرأ قيماً متغيرة من بعض الحساسات.","منافذ الطاقة توفر الجهد المناسب حسب مواصفات اللوحة."],steps:["تعرف على منفذ USB.","ابحث عن المنافذ الرقمية المكتوب بجانبها أرقام.","تعرف على مداخل الطاقة و GND.","لا توصل أي قطعة قبل التأكد من الجهد والتوصيل الصحيح."],question:"ما وظيفة منفذ GND؟",answers:["الأرضي أو المرجع الكهربائي","تخزين الصور","الاتصال بالإنترنت دائماً"],correct:0},
+{title:"الحساسات Sensors",icon:"📡",desc:"اكتشف كيف يستشعر الروبوت البيئة المحيطة.",theory:["الحساس يحول ظاهرة من البيئة إلى إشارة يمكن للنظام قراءتها.","حساس المسافة بالموجات فوق الصوتية يقدّر بعد الأجسام.","حساس الضوء يقيس شدة الإضاءة.","حساس الحرارة يقيس درجة الحرارة."],steps:["اختر نوع الحساس المناسب للمعلومة التي تريد قياسها.","حدد أطراف الطاقة والأرضي والإشارة حسب ورقة الحساس.","تأكد من توافق جهد الحساس مع لوحة التحكم."],question:"أي حساس يمكن استعماله لتقدير بُعد جسم؟",answers:["حساس المسافة","حساس الحرارة","LED"],correct:0},
+{title:"المحركات Motors",icon:"⚙️",desc:"تعرف على المحركات ودورها في تحريك الروبوت.",theory:["المحرك يحول الطاقة الكهربائية إلى حركة.","محرك DC يدور عند تغذيته بالطاقة المناسبة.","السيرفو يسمح بالتحكم في زاوية محددة ضمن مجاله.","قد تحتاج المحركات إلى دائرة قيادة مناسبة، لأن اللوحة لا تغذي كل المحركات مباشرة."],steps:["تعرف على الفرق بين محرك DC ومحرك Servo.","اقرأ الجهد والتيار المناسبين للمحرك.","استعمل وحدة قيادة مناسبة عند الحاجة."],question:"أي محرك يُستخدم غالباً للتحكم في زاوية محددة؟",answers:["Servo","LED","مقاومة"],correct:0},
+{title:"مقدمة في برمجة Arduino",icon:"💻",desc:"افهم فكرة البرنامج وكيف يوجّه اللوحة.",theory:["البرنامج عبارة عن تعليمات تنفذها لوحة التحكم.","الدالة setup تنفذ مرة عند بدء التشغيل.","الدالة loop تتكرر باستمرار.","يجب اختيار اللوحة والمنفذ الصحيحين عند رفع البرنامج."],steps:["تعرف على بيئة Arduino IDE.","افهم الفرق بين setup و loop.","ابدأ بتجربة مثال Blink الرسمي بعد فهم التوصيلات."],question:"أي دالة تتكرر باستمرار في برنامج Arduino؟",answers:["loop","setup","startOnly"],correct:0},
+{title:"أنظمة التحكم",icon:"🎛️",desc:"تعرف على العلاقة بين الحساس والقرار والتنفيذ.",theory:["نظام التحكم يستقبل بيانات، يعالجها، ثم ينفذ أمراً.","الحساس يقدم معلومات عن البيئة.","المتحكم يتخذ القرار وفق التعليمات.","المشغل مثل المحرك ينفذ الحركة."],steps:["حدد ما الذي سيقيسه الحساس.","حدد القرار الذي سيتخذه المتحكم.","حدد الفعل الذي سينفذه المحرك أو المصباح.","فكر كيف يمكن للنظام تعديل فعله حسب القراءة."],question:"ما الترتيب المنطقي لنظام تحكم بسيط؟",answers:["حساس ← متحكم ← مشغل","مشغل ← حساس ← بطارية فقط","مقاومة ← شاشة ← حساس"],correct:0},
+{title:"مشروع سيارة روبوت",icon:"🚗",desc:"اجمع ما تعلمته في تصور مشروع سيارة روبوت بسيطة.",theory:["تتكون السيارة التعليمية من هيكل ومحركات وعجلات ومتحكم ومصدر طاقة.","يمكن إضافة حساس مسافة لمساعدة السيارة على ملاحظة العوائق.","يجب التحقق من توافق مصدر الطاقة والمحركات ووحدة القيادة."],steps:["حدد القطع التي يحتاجها المشروع.","خطط مكان تثبيت المحركات والبطارية ولوحة التحكم.","ارسم مخطط التوصيلات قبل التنفيذ.","اختبر كل جزء على حدة ثم اختبر المشروع كاملاً."],question:"ما فائدة حساس المسافة في سيارة روبوت؟",answers:["ملاحظة العوائق وتقدير بعدها","زيادة وزن السيارة","تغيير لون الأسلاك"],correct:0},
+{title:"أردوينو ببساطة (ف1): المتحكمات الدقيقة و Arduino Uno",icon:"📘",desc:"الفرق بين الدوائر الثابتة والمتحكمات الدقيقة ومواصفات بوردة Arduino Uno.",theory:["الدوائر الثابتة لا يتغير عملها دون تعديل القطع، بينما المتحكم الدقيق يُبرمج لأداء مهام متعددة.","أردوينو عتاد وبرمجيات مفتوحة المصدر بلغة Arduino C.","تعتمد Arduino Uno على متحكمة ATmega328 بتردد 16 MHz وذاكرة 32KB (منها 29KB Flash و2KB SRAM و1KB EEPROM و0.5KB Bootloader).","المجال المفضل للجهد الخارجي 7–12V (الحد الأقصى 6–20V) مع 14 منفذاً رقمياً (6 منها PWM) و6 مداخل تماثلية A0–A5."],steps:["قارن بين المتحكمات الدقيقة والدوائر الثابتة.","تعرف على منافذ 5V و3.3V وGND وVin ومنافذ PWM (~3, ~5, ~6, ~9, ~10, ~11)."],question:"ما هو المجال المفضل لجهد التغذية الخارجي لبوردة Arduino Uno؟",answers:["7 إلى 12 فولت","1 إلى 3 فولت","24 إلى 48 فولت"],correct:0},
+{title:"أردوينو ببساطة (ف2): التجهيزات المادية و Arduino IDE",icon:"🛠️",desc:"تجهيز الأدوات والمقاومات وأسلاك Cat5 وتنصيب Arduino IDE.",theory:["تشمل التجهيزات الأساسية: Arduino Uno V.3، كابل USB، Breadboard، LEDs، مقاومات 560Ω و10kΩ، وأسلاك توصيل.","يمكن تجهيز أسلاك توصيل من كابل Cat5 بقص وتقشير 1 سم من الطرفين.","نختار البوردة والمنفذ التسلسلي Serial Port من قائمة Tools في Arduino IDE."],steps:["جهز لوحة التجارب والمقاومات والأسلاك.","ثبّت برنامج Arduino IDE وتعرّف على أزرار Verify وUpload.","اختر Arduino Uno والمنفذ الصحيح من Tools -> Serial Port."],question:"من أي قائمة في Arduino IDE نختار نوع البوردة ومنفذ Serial Port؟",answers:["قائمة Tools","قائمة Edit فقط","قائمة Sketch فقط"],correct:0},
+{title:"أردوينو ببساطة (ف3 — مثال 1): وميض الليد وهيكلة الكود",icon:"💡",desc:"المثال الأول (Blinking LED) وهيكلة البرنامج: الثوابت، setup()، وloop().",theory:["يتكون برنامج أردوينو من تعريف الثوابت والمتغيرات، ثم setup() التي تُنفذ مرة واحدة، ثم loop() التي تتكرر باستمرار.","نستخدم pinMode(LED, OUTPUT) وdigitalWrite(LED, HIGH/LOW) وdelay(1000)."],steps:["وصّل الليد على المنفذ 13 مع مقاومة 560Ω إلى GND.","ارفع الكود ولاحظ وميض الليد كل ثانية."],code:"// Example 01: Blinking LED\nconst int LED = 13;\n\nvoid setup()\n{\n  pinMode(LED, OUTPUT);\n}\n\nvoid loop()\n{\n  digitalWrite(LED, HIGH);\n  delay(1000);\n  digitalWrite(LED, LOW);\n  delay(1000);\n}",question:"كم مرة تُنفذ دالة setup() في برنامج أردوينو؟",answers:["مرة واحدة عند بدء التشغيل","بشكل لا نهائي طوال تشغيل اللوحة","فقط عند الضغط على زر الإرسال"],correct:0},
+{title:"أردوينو ببساطة (ف3 — مثال 2): التحكم بزر ضاغط (Switch)",icon:"🔘",desc:"قراءة مدخل رقمي بواسطة digitalRead() واستخدام الشرط if ... else.",theory:["نصل طرف زر Push Button بـ 5V والطرف الآخر بالمنفذ الرقمي 2 مع مقاومة 10kΩ إلى GND.","تُقرأ حالة الزر عبر digitalRead(buttonPin) ومع if (val == HIGH) يومض الليد."],steps:["ثبّت الزر والمقاومة 10kΩ على المنفذ 2 والليد بمقاومة 560Ω على المنفذ 13.","ارفع الكود واختبر حالة الليد عند الضغط على الزر."],code:"// Example_2_Blinking_with_Switch\nconst int ledPin = 13;\nconst int buttonPin = 2;\nint val;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n  pinMode(buttonPin, INPUT);\n}\n\nvoid loop()\n{\n  val = digitalRead(buttonPin);\n  if (val == HIGH)\n  {\n    digitalWrite(ledPin, HIGH);\n    delay(1000);\n    digitalWrite(ledPin, LOW);\n    delay(1000);\n  }\n  else\n  {\n    digitalWrite(ledPin, LOW);\n  }\n}",question:"ما قيمة مقاومة السحب الموصولة مع زر Push Button في المثال الثاني؟",answers:["10 كيلو أوم","1 أوم","100 ميجا أوم"],correct:0},
+{title:"أردوينو ببساطة (ف3 — مثال 3): مفتاحان (2 Switches) والمتغيرات",icon:"🔀",desc:"استخدام else if للتحكم بمفتاحين وأنواع البيانات في أردوينو.",theory:["يمكن استخدام المنفذين 2 و3 مع else if لتنفيذ سرعات وميض مختلفة (400ms و100ms).","من أنواع البيانات: int، float، char، long، وbyte."],steps:["وصّل المفتاح الأول على المنفذ 2 والثاني على المنفذ 3 مع مقاومتين 10kΩ.","ارفع الكود واختبر سرعة الوميض لكل مفتاح."],code:"// Example_3_On_Off_with_2_Switchs_2\nconst int ledPin = 13;\nconst int inputPin1 = 2;\nconst int inputPin2 = 3;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n  pinMode(inputPin1, INPUT);\n  pinMode(inputPin2, INPUT);\n}\n\nvoid loop()\n{\n  if (digitalRead(inputPin1) == HIGH)\n  {\n    digitalWrite(ledPin, HIGH);\n    delay(400);\n    digitalWrite(ledPin, LOW);\n    delay(400);\n  }\n  else if (digitalRead(inputPin2) == HIGH)\n  {\n    digitalWrite(ledPin, HIGH);\n    delay(100);\n    digitalWrite(ledPin, LOW);\n    delay(100);\n  }\n}",question:"أي نوع متغير يُستخدم لتمثيل الأعداد العشرية في لغة أردوينو؟",answers:["float","char","byte فقط"],correct:0},
+{title:"أردوينو ببساطة (ف4 — مثال 4): المقاومة المتغيرة (Potentiometer)",icon:"🎚️",desc:"الفرق بين الإشارة الرقمية والتماثلية وقراءة A0 عبر analogRead().",theory:["تحول المداخل التماثلية A0–A5 الجهد (0–5V) إلى قيم رقمية بين 0 و1023.","نربط الطرف الأوسط للمقاومة المتغيرة بالمدخل A0 ونمرر القيمة إلى delay(sensorValue)."],steps:["وصّل المقاومة المتغيرة على A0 والليد على المنفذ 13.","ارفع الكود وأدِر المقاومة لملاحظة تغير سرعة الوميض."],code:"// Example_4_Variable_Resistor_sensor\nconst int sensorPin = A0;\nconst int ledPin = 13;\nint sensorValue;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  sensorValue = analogRead(sensorPin);\n  digitalWrite(ledPin, HIGH);\n  delay(sensorValue);\n  digitalWrite(ledPin, LOW);\n  delay(sensorValue);\n}",question:"ما المدى الرقمي الذي تُرجعه دالة analogRead() على Arduino Uno؟",answers:["من 0 إلى 1023","من 0 إلى 1 فقط","من 10 إلى 20 فقط"],correct:0},
+{title:"أردوينو ببساطة (ف4 — مثال 5): المقاومة الضوئية و PWM",icon:"☀️",desc:"استشعار الضوء والتحكم في سطوع الليد عبر analogWrite() وmap() وconstrain().",theory:["تقل مقاومة المقاومة الضوئية بزيادة شدة الضوء.","نستخدم map(lightLevel, 0, 900, 0, 255) وconstrain(lightLevel, 0, 255) ثم analogWrite(ledPin, lightLevel)."],steps:["وصّل المقاومة الضوئية على A0 والليد على المنفذ 9.","ارفع الكود وغيّر شدة الإضاءة على الحساس."],code:"// Example_5_Light_Sensor_led\nconst int lightPin = A0;\nconst int ledPin = 9;\nint lightLevel;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  lightLevel = analogRead(lightPin);\n  lightLevel = map(lightLevel, 0, 900, 0, 255);\n  lightLevel = constrain(lightLevel, 0, 255);\n  analogWrite(ledPin, lightLevel);\n}",question:"ما المدى العددي الذي تقبله دالة analogWrite() لإشارة PWM؟",answers:["من 0 إلى 255","من 0 إلى 10","من 100 إلى 1000"],correct:0},
+{title:"أردوينو ببساطة (ف4 — مثال 6): تلاشي الليد بحلقة for",icon:"✨",desc:"استخدام حلقة التكرار for (تصاعدياً i++ وتنازلياً i--) لعمل تأثير Fading LED.",theory:["تكرر حلقة for تنفيذ الأوامر حتى يتحقق شرط التوقف.","يزداد i من 0 إلى 254 لرفع السطوع على المنفذ 11 ثم يتناقص من 255 إلى 1 لخفض السطوع."],steps:["وصّل الليد بمقاومة 560Ω على المنفذ 11.","ارفع الكود وراقب تدرج الإضاءة."],code:"// Example_6_fading_led_light\nconst int ledPin = 11;\nint i = 0;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  for (i = 0; i < 255; i++)\n  {\n    analogWrite(ledPin, i);\n    delay(10);\n  }\n  for (i = 255; i > 0; i--)\n  {\n    analogWrite(ledPin, i);\n    delay(10);\n  }\n}",question:"ماذا يفعل العداد i-- داخل حلقة التكرار for؟",answers:["ينقص قيمة المتغير i بمقدار 1 في كل دورة","يزيد قيمة المتغير i بمقدار 100","يوقف البرنامج نهائياً"],correct:0},
+{title:"أردوينو ببساطة (ف5 — مثال 7): إرسال درجة الحرارة للحاسوب",icon:"🌡️",desc:"استخدام Serial Monitor لقراءة حساس TMP36 وتحويل القراءة إلى فولت ودرجة مئوية.",theory:["نبدأ الاتصال التسلسلي عبر Serial.begin(9600) ونطبع عبر Serial.print() وSerial.println().","voltage = reading * 5.0 / 1024 وtemperatureC = (voltage - 0.5) * 100."],steps:["وصّل حساس TMP36 على A0 مع 5V وGND.","ارفع الكود وافتح Serial Monitor لمشاهدة الفولت ودرجة الحرارة."],code:"// Example_7_Temprature_Sensor\nconst int sensorPin = A0;\nint reading;\nfloat voltage;\nfloat temperatureC;\n\nvoid setup()\n{\n  Serial.begin(9600);\n}\n\nvoid loop()\n{\n  reading = analogRead(sensorPin);\n  voltage = reading * 5.0 / 1024;\n  Serial.print(voltage);\n  Serial.println(\" volts\");\n  temperatureC = (voltage - 0.5) * 100;\n  Serial.println(\"Temperature is: \");\n  Serial.print(temperatureC);\n  Serial.println(\" degrees C\");\n  delay(1000);\n}",question:"أي دالة تُستخدم لبدء الاتصال التسلسلي بسرعة 9600؟",answers:["Serial.begin(9600);","digitalRead(9600);","analogWrite(9600);"],correct:0},
+{title:"أردوينو ببساطة (ف5 — مثال 8): تصنيف مستويات الإضاءة",icon:"📊",desc:"طباعة قيمة حساس الضوء وتصنيفها نصياً على الحاسوب.",theory:["نقرأ قيمة المقاومة الضوئية على A0 ونطبعها في Serial Monitor.","نستخدم if / else if لتصنيف مستويات الإضاءة حسب القراءة."],steps:["وصّل المقاومة الضوئية على A0 وارفع الكود.","افتح Serial Monitor وغيّر الإضاءة."],code:"// Example_8_Light_Sensor_2\nconst int photocellPin = A0;\nint photocellReading;\n\nvoid setup(void)\n{\n  Serial.begin(9600);\n}\n\nvoid loop(void)\n{\n  photocellReading = analogRead(photocellPin);\n  Serial.print(\"Analog reading = \");\n  Serial.print(photocellReading);\n  if (photocellReading < 10) { Serial.println(\" - Dark\"); }\n  else if (photocellReading < 200) { Serial.println(\" - Dim\"); }\n  else if (photocellReading < 500) { Serial.println(\" - Light\"); }\n  else if (photocellReading < 800) { Serial.println(\" - Bright\"); }\n  else { Serial.println(\" - Very bright\"); }\n  delay(1000);\n}",question:"ما الوصف الذي يُطبع عندما تكون قراءة الحساس الضوئي أقل من 10؟",answers:["Dark","Very bright","Light"],correct:0},
+{title:"أردوينو ببساطة (ف5 — مثال 9): أوامر الحاسوب عبر Serial.read",icon:"⌨️",desc:"إرسال الحرفين 1 و0 من الحاسوب للتحكم في الليد على المنفذ 13.",theory:["تقرأ دالة Serial.read() البيانات المرسلة من الحاسوب.","عند استقبال 1 يضيء الليد على المنفذ 13 وعند استقبال 0 ينطفئ."],steps:["وصّل الليد بمقاومة 560Ω على المنفذ 13 وارفع الكود.","افتح Serial Monitor وأرسل 1 أو 0."],code:"// Example_9_Computer_Interfacing\nint ledPin = 13;\nint value;\n\nvoid setup()\n{\n  Serial.begin(9600);\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  value = Serial.read();\n  if (value == 49) { digitalWrite(ledPin, HIGH); }\n  else if (value == 48) { digitalWrite(ledPin, LOW); }\n}",question:"ما الأمر الذي يطفئ الليد في كود المثال التاسع؟",answers:["إرسال الحرف 0","إرسال الحرف 9","إرسال كلمة START"],correct:0},
+{title:"أردوينو ببساطة (ف6 — مثال 10): التحكم في محرك DC Motor",icon:"🌀",desc:"تشغيل محرك DC صغير عبر ترانزستور 2N2222 ودايود حماية 1N4001.",theory:["يُستخدم الترانزستور مع مقاومة 560Ω لقيادة المحرك ودايود 1N4001 لحماية الدائرة من التيار العكسي.","نغير سرعة المحرك على المنفذ 9 بالقيم 100 ثم 190 ثم 255."],steps:["ركّب دائرة الترانزستور والدايود والمقاومة مع محرك DC على المنفذ 9.","ارفع الكود ولاحظ تغير سرعة الدوران."],code:"// Example_10_DC_Motor\nint motorPin = 9;\nint onTime = 2500;\nint offTime = 1000;\n\nvoid setup()\n{\n  pinMode(motorPin, OUTPUT);\n}\n\nvoid loop()\n{\n  analogWrite(motorPin, 100);\n  delay(onTime);\n  digitalWrite(motorPin, LOW);\n  delay(offTime);\n  analogWrite(motorPin, 190);\n  delay(onTime);\n  digitalWrite(motorPin, LOW);\n  delay(offTime);\n  analogWrite(motorPin, 255);\n  delay(onTime);\n  digitalWrite(motorPin, LOW);\n  delay(offTime);\n}",question:"ما فائدة دايود 1N4001 الموصول مع محرك DC؟",answers:["حماية الدائرة من التيار العكسي الناتج عن المحرك","زيادة عدد منافذ Arduino Uno","تغيير لون المحرك"],correct:0},
+{title:"أردوينو ببساطة (ف6 — مثال 11): التحكم في محرك Servo Motor",icon:"🦾",desc:"تحريك محرك سيرفو من 0 إلى 180 درجة باستخدام مكتبة Servo.h.",theory:["يدور محرك السيرفو إلى زوايا محددة (0 إلى 180 درجة) وله 3 أسلاك: طاقة، أرضي، وإشارة.","نربطه بالمنفذ 9 عبر myservo.attach(9) ونحدد الزاوية بـ myservo.write(pos)."],steps:["وصّل محرك السيرفو مع سلك الإشارة على المنفذ 9.","ارفع الكود وراقب حركة الذراع."],code:"// Example_11_Servo_Motor\n#include <Servo.h>\n\nServo myservo;\nint pos = 0;\n\nvoid setup()\n{\n  myservo.attach(9);\n}\n\nvoid loop()\n{\n  for (pos = 0; pos < 180; pos += 1)\n  {\n    myservo.write(pos);\n    delay(15);\n  }\n  for (pos = 180; pos >= 1; pos -= 1)\n  {\n    myservo.write(pos);\n    delay(15);\n  }\n}",question:"أي أمر يربط كائن السيرفو بالمنفذ الرقمي 9؟",answers:["myservo.attach(9);","myservo.read(9);","myservo.stop(9);"],correct:0},
+{title:"أردوينو ببساطة (ف7 — مثال 12): شاشة LCD 16x2",icon:"🖥️",desc:"توصيل وبرمجة شاشة الكريستال السائل 16x2 بمكتبة LiquidCrystal.h.",theory:["تعرض شاشة 16x2 سطرين بكل سطر 16 حرفاً مع مقاومة متغيرة 10kΩ لضبط التباين.","نُعرّف الشاشة عبر LiquidCrystal lcd(7, 8, 9, 10, 11, 12) ونطبع بـ lcd.print() وlcd.setCursor()."],steps:["وصّل شاشة LCD مع مقاومة التباين 10kΩ والمنافذ 7–12.","ارفع الكود واضبط المقاومة حتى تظهر الكتابة."],code:"// Example_12_LCD_16x2\n#include <LiquidCrystal.h>\n\nLiquidCrystal lcd(7, 8, 9, 10, 11, 12);\n\nvoid setup()\n{\n  lcd.begin(16, 2);\n  lcd.print(\"hello, world!\");\n}\n\nvoid loop()\n{\n  lcd.setCursor(0, 1);\n  lcd.print(millis() / 1000);\n}",question:"كم سطراً وكم حرفاً في كل سطر تعرض شاشة LCD 16x2؟",answers:["سطران وفي كل سطر 16 حرفاً","16 سطراً وفي كل سطر حرفان","سطر واحد فقط بـ 2 حرف"],correct:0},
+{title:"أردوينو ببساطة (ف7 — مثال 13): لوحة الأرقام Keypad 4x3",icon:"🔢",desc:"ربط Keypad 4x3 وتثبيت مكتبة Keypad.h لقراءة المفاتيح المضغوطة.",theory:["تُوصل لوحة المفاتيح 4x3 على المنافذ الرقمية 2 إلى 8 وتُوضع مكتبة Keypad داخل مجلد libraries.","نقرأ المفتاح عبر keypad.getKey() عندما يختلف عن NO_KEY."],steps:["ثبّت مكتبة Keypad داخل مجلد libraries وأعد تشغيل Arduino IDE.","وصّل المفاتيح على المنافذ 2–8 وارفع الكود."],code:"// Example_13_Keypad_Input\n#include <Keypad.h>\n\nconst byte ROWS = 4;\nconst byte COLS = 3;\nchar keys[ROWS][COLS] = {{1,2,3},{4,5,6},{7,8,9},{10,0,11}};\nbyte rowPins[ROWS] = {5, 4, 3, 2};\nbyte colPins[COLS] = {8, 7, 6};\nKeypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);\n\nvoid setup()\n{\n  Serial.begin(9600);\n}\n\nvoid loop()\n{\n  char key = keypad.getKey();\n  if (key != NO_KEY) { Serial.println(key); }\n}",question:"أين توضع المكتبات الجديدة مثل Keypad في بيئة Arduino IDE؟",answers:["داخل مجلد libraries","داخل سلة المهملات","داخل مجلد الصور فقط"],correct:0},
+{title:"أردوينو ببساطة (ف7): المرحّلات الكهربائية (Relays)",icon:"🔌",desc:"فهم عمل الريلاي والعزل الكهربائي ودائرة القيادة بترانزستور 2N2222.",theory:["يعمل الريلاي كسويتش يُدار بجهد 5V للتحكم بأحمال 110V/220V مع عزل كهربائي.","يُقاد عبر ترانزستور 2N2222 ومقاومة 1kΩ ودايود حماية."],steps:["تعرّف على أطراف الملف ونقاط التلامس في الريلاي.","صمّم دائرة القيادة بترانزستور 2N2222 ودايود."],code:"// Relay on pin 8\nconst int relayPin = 8;\n\nvoid setup()\n{\n  pinMode(relayPin, OUTPUT);\n}\n\nvoid loop()\n{\n  digitalWrite(relayPin, HIGH);\n  delay(2000);\n  digitalWrite(relayPin, LOW);\n  delay(2000);\n}",question:"لماذا نستخدم Relay عند التحكم في حمل يعمل بجهد عالٍ (110V/220V) بواسطة الأردوينو؟",answers:["للفصل والعزل الكهربائي والتحكم بحمل أعلى جهد وتيار بأمان","لزيادة سعة ذاكرة Flash","لإلغاء الحاجة لمصدر طاقة"],correct:0},
+{title:"أردوينو ببساطة (ف8): أغطية أردوينو الجاهزة (Shields)",icon:"🛡️",desc:"التعرف على Ethernet Shield وXbee Shield وMotor Shield وTouch Colored Screen.",theory:["تُركب الأغطية (Shields) مباشرة فوق بوردة أردوينو لإضافة وظائف جاهزة.","تشمل Ethernet Shield، Xbee Shield (اتصال لاسلكي حتى ~100 متر)، Motor Shield، وTouch Colored Screen."],steps:["قارن بين وظائف الأغطية واختر الغطاء المناسب لمشروعك."],question:"أي غطاء يُستخدم للاتصال اللاسلكي بين بوردات أردوينو في نطاق يقارب 100 متر؟",answers:["Xbee Shield","مقاومة 560 أوم فقط","كابل USB وحده"],correct:0},
+{title:"أردوينو ببساطة (ف9): تاريخ أردوينو، ARM و FPGA، وFab Lab",icon:"🏛️",desc:"نشأة أردوينو سنة 2005 في إيطاليا، تطوره إلى ARM وFPGA، ومعامل التصنيع Fab Lab.",theory:["بدأ مشروع أردوينو سنة 2005 في مدينة Ivrea بإيطاليا على يد ماسيمو بانزي وزملائه.","تطور النظام ليشمل معالجات ARM Cortex وشرائح FPGA، وتوفر معامل Fab Lab أدوات مثل Laser Cutter و3D Printer وCNC."],steps:["تعرّف على محطات تطور أردوينو.","اطّلع على أدوات معامل التصنيع الشخصي Fab Lab."],question:"أين ومتى انطلق مشروع أردوينو؟",answers:["سنة 2005 في مدينة Ivrea بإيطاليا","سنة 1980 في القطب الشمالي","سنة 2020 في الفضاء"],correct:0}
 ];
 
 let completed = JSON.parse(localStorage.getItem("robotics_completed") || "[]");
 let quizPassed = JSON.parse(localStorage.getItem("robotics_quiz") || "[]");
 let practicalPassed = JSON.parse(localStorage.getItem("robotics_practical") || "[]");
 let points = Number(localStorage.getItem("robotics_points") || 0);
-let current = -1;
-let selected = -1;
+let current = -1, selected = -1;
 
 function save() {
   localStorage.setItem("robotics_completed", JSON.stringify(completed));
@@ -291,76 +122,54 @@ function save() {
 }
 
 function showPage(name) {
-  ["homePage", "lessonsPage", "lessonPage", "progressPage", "aboutPage"].forEach(function(id) {
-    document.getElementById(id).classList.add("hidden");
-  });
+  ["homePage", "lessonsPage", "lessonPage", "progressPage", "aboutPage"].forEach(id => document.getElementById(id).classList.add("hidden"));
   document.getElementById(name + "Page").classList.remove("hidden");
   if (name === "home" || name === "lessons" || name === "progress") renderAll();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function card(i) {
-  const l = lessons[i];
-  const done = completed.includes(i);
-  return '<div class="card lesson-card"><div class="lesson-icon">' + l.icon + '</div><div style="flex:1"><h3>' + (i + 1) + '. ' + l.title + (done ? ' ✓' : '') + '</h3><p>' + l.desc + '</p><button type="button" class="primary open-lesson-btn" data-index="' + i + '">' + (done ? 'مراجعة الدرس' : 'افتح الدرس') + '</button></div></div>';
+  let l = lessons[i], done = completed.includes(i);
+  return `<div class="card lesson-card"><div class="lesson-icon">${l.icon}</div><div style="flex:1"><h3>${i + 1}. ${l.title} ${done ? "✓" : ""}</h3><p>${l.desc}</p><button type="button" class="primary open-lesson-btn" data-index="${i}">${done ? "مراجعة الدرس" : "افتح الدرس"}</button></div></div>`;
 }
 
 function renderAll() {
-  document.getElementById("homeLessons").innerHTML = lessons.slice(0, 4).map(function(_, i) { return card(i); }).join("");
-  document.getElementById("lessonList").innerHTML = lessons.map(function(_, i) { return card(i); }).join("");
-  document.getElementById("homeCountLabel").textContent = lessons.length + " دروس مرتبة";
-  const pct = Math.round(completed.length / lessons.length * 100);
+  document.getElementById("homeLessons").innerHTML = lessons.slice(0, 4).map((_, i) => card(i)).join("");
+  document.getElementById("lessonList").innerHTML = lessons.map((_, i) => card(i)).join("");
+  document.getElementById("homeCountLabel").textContent = lessons.length + " درساً مرتباً";
+  let pct = Math.round(completed.length / lessons.length * 100);
   document.getElementById("homeDone").textContent = completed.length + " / " + lessons.length;
   document.getElementById("homePoints").textContent = points;
   document.getElementById("homePercent").textContent = pct + "%";
   document.getElementById("homeBar").style.width = pct + "%";
   document.getElementById("progressBar").style.width = pct + "%";
-  document.getElementById("progressText").textContent = "أكملت " + completed.length + " من " + lessons.length + " دروس — " + pct + "%";
-  document.getElementById("progressItems").innerHTML = lessons.map(function(l, i) {
-    return "<p>" + (completed.includes(i) ? "✅" : "⬜") + " " + (i + 1) + ". " + l.title + "</p>";
-  }).join("");
+  document.getElementById("progressText").textContent = `أكملت ${completed.length} من ${lessons.length} دروس — ${pct}%`;
+  document.getElementById("progressItems").innerHTML = lessons.map((l, i) => `<p>${completed.includes(i) ? "✅" : "⬜"} ${i + 1}. ${l.title}</p>`).join("");
 }
 
 function openLesson(i) {
   current = i;
   selected = -1;
   const l = lessons[i];
-  const theory = l.theory.map(function(x) { return "<li>" + x + "</li>"; }).join("");
-  const steps = l.steps.map(function(x) { return "<li>" + x + "</li>"; }).join("");
-  const codeBlock = l.code ? '<h3>الكود البرمجي</h3><div class="code-box"><pre>' + l.code.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</pre></div>' : "";
-  const opts = l.answers.map(function(a, j) {
-    return '<button type="button" class="option opt-btn" data-opt="' + j + '">' + String.fromCharCode(65 + j) + '. ' + a + '</button>';
-  }).join("");
-  const practical = l.first ? "" : '<div class="lesson-box"><h3>التطبيق العملي عبر Wokwi</h3><p>افتح المحاكاة الخارجية وجرّب النشاط المناسب. الأكاديمية لا تستطيع فحص مشروع Wokwi تلقائياً؛ استعمل قائمة التحقق بنفسك.</p><a class="btn primary" href="https://wokwi.com/projects/new/arduino-uno" target="_blank" rel="noopener">افتح Wokwi في صفحة جديدة</a><div class="notice"><strong>هل تعرف كيف تستعمل Wokwi؟</strong><p>إذا لم تكن تعرف، تعرّف أولاً على طريقة إنشاء مشروع، إضافة القطع، وربط الأسلاك وتشغيل المحاكاة. لا تنتقل للتطبيق حتى تفهم الواجهة.</p><a class="btn" href="https://docs.wokwi.com/" target="_blank" rel="noopener">دليل Wokwi الرسمي</a></div><label class="checkline"><input type="checkbox" class="prac-chk" id="c1"> أضفت القطع المطلوبة للمشروع.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c2"> راجعت التوصيلات وتأكدت من صحتها.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c3"> شغّلت المحاكاة وراجعت النتيجة.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c4"> لا توجد أخطاء تمنع التجربة من العمل.</label><label>رابط مشروع Wokwi (اختياري):</label><input type="url" id="wokwiUrl" placeholder="https://wokwi.com/projects/..."></div>';
+  let theory = l.theory.map(x => `<li>${x}</li>`).join("");
+  let steps = l.steps.map(x => `<li>${x}</li>`).join("");
+  let codeBlock = l.code ? `<h3>الكود البرمجي</h3><div class="code-box"><pre>${l.code.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}</pre></div>` : "";
+  let opts = l.answers.map((a, j) => `<button type="button" class="option opt-btn" data-opt="${j}">${String.fromCharCode(65 + j)}. ${a}</button>`).join("");
+  let practical = l.first ? "" : `<div class="lesson-box"><h3>التطبيق العملي عبر Wokwi</h3><p>افتح المحاكاة الخارجية وجرّب النشاط المناسب. الأكاديمية لا تستطيع فحص مشروع Wokwi تلقائياً؛ استعمل قائمة التحقق بنفسك.</p><a class="btn primary" href="https://wokwi.com/projects/new/arduino-uno" target="_blank" rel="noopener">افتح Wokwi في صفحة جديدة</a><div class="notice"><strong>هل تعرف كيف تستعمل Wokwi؟</strong><p>إذا لم تكن تعرف، تعرّف أولاً على طريقة إنشاء مشروع، إضافة القطع، وربط الأسلاك وتشغيل المحاكاة. لا تنتقل للتطبيق حتى تفهم الواجهة.</p><a class="btn" href="https://docs.wokwi.com/" target="_blank" rel="noopener">دليل Wokwi الرسمي</a></div><label class="checkline"><input type="checkbox" class="prac-chk" id="c1"> أضفت القطع المطلوبة للمشروع.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c2"> راجعت التوصيلات وتأكدت من صحتها.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c3"> شغّلت المحاكاة وراجعت النتيجة.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c4"> لا توجد أخطاء تمنع التجربة من العمل.</label><label>رابط مشروع Wokwi (اختياري):</label><input type="url" id="wokwiUrl" placeholder="https://wokwi.com/projects/..."></div>`;
 
-  document.getElementById("lessonContent").innerHTML =
-    '<div class="lesson-box"><span class="tag">الدرس ' + (i + 1) + ' من ' + lessons.length + '</span><h2>' + l.icon + ' ' + l.title + '</h2><p class="muted">' + l.desc + '</p><h3>1. الشرح</h3><ul>' + theory + '</ul><h3>2. خطوات التعلم</h3><ol>' + steps + '</ol>' + codeBlock +
-    (l.first ? '<div class="notice"><strong>مهم:</strong> هذا الدرس بدون كود. ركّز فقط على التعرف على القطع وفهم طريقة ربطها نظرياً.</div>' : '') +
-    '</div><div class="quiz"><h3>3. اختبر فهمك</h3><p>' + l.question + '</p>' + opts +
-    '<button type="button" class="primary" id="checkAnsBtn">تحقق من الإجابة</button><div id="quizFeedback" class="feedback"></div></div>' +
-    practical +
-    '<div class="lesson-box"><button type="button" class="primary" id="finishBtn" disabled>إكمال الدرس</button><p class="muted" id="finishHint">أجب عن السؤال' + (l.first ? '' : ' وأكمل قائمة التطبيق العملي') + ' لتفعيل زر إكمال الدرس.</p></div>';
+  document.getElementById("lessonContent").innerHTML = `<div class="lesson-box"><span class="tag">الدرس ${i + 1} من ${lessons.length}</span><h2>${l.icon} ${l.title}</h2><p class="muted">${l.desc}</p><h3>1. الشرح</h3><ul>${theory}</ul><h3>2. خطوات التعلم</h3><ol>${steps}</ol>${codeBlock}${l.first ? '<div class="notice"><strong>مهم:</strong> هذا الدرس بدون كود. ركّز فقط على التعرف على القطع وفهم طريقة ربطها نظرياً.</div>' : ""}</div><div class="quiz"><h3>3. اختبر فهمك</h3><p>${l.question}</p>${opts}<button type="button" class="primary" id="checkAnsBtn">تحقق من الإجابة</button><div id="quizFeedback" class="feedback"></div></div>${practical}<div class="lesson-box"><button type="button" class="primary" id="finishBtn" disabled>إكمال الدرس</button><p class="muted" id="finishHint">أجب عن السؤال${l.first ? "" : " وأكمل قائمة التطبيق العملي"} لتفعيل زر إكمال الدرس.</p></div>`;
 
-  document.querySelectorAll(".opt-btn").forEach(function(btn) {
-    btn.addEventListener("click", function() { choose(Number(btn.dataset.opt)); });
-  });
+  document.querySelectorAll(".opt-btn").forEach(btn => btn.addEventListener("click", () => choose(Number(btn.dataset.opt))));
   const chkBtn = document.getElementById("checkAnsBtn");
   if (chkBtn) chkBtn.addEventListener("click", checkAnswer);
   const finBtn = document.getElementById("finishBtn");
   if (finBtn) finBtn.addEventListener("click", finishLesson);
-  document.querySelectorAll(".prac-chk").forEach(function(chk) {
-    chk.addEventListener("change", checkPractical);
-  });
+  document.querySelectorAll(".prac-chk").forEach(chk => chk.addEventListener("change", checkPractical));
 
   document.getElementById("lessonPage").classList.remove("hidden");
-  ["homePage", "lessonsPage", "progressPage", "aboutPage"].forEach(function(id) {
-    document.getElementById(id).classList.add("hidden");
-  });
+  ["homePage", "lessonsPage", "progressPage", "aboutPage"].forEach(id => document.getElementById(id).classList.add("hidden"));
   if (practicalPassed.includes(i) && !l.first) {
-    ["c1", "c2", "c3", "c4"].forEach(function(id) {
-      const el = document.getElementById(id);
-      if (el) el.checked = true;
-    });
+    ["c1", "c2", "c3", "c4"].forEach(id => { const el = document.getElementById(id); if (el) el.checked = true; });
   }
   updateFinish();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -368,16 +177,11 @@ function openLesson(i) {
 
 function choose(j) {
   selected = j;
-  lessons[current].answers.forEach(function(_, k) {
-    document.getElementById("opt" + k).classList.toggle("selected", k === j);
-  });
+  lessons[current].answers.forEach((_, k) => document.getElementById("opt" + k).classList.toggle("selected", k === j));
 }
 
 function checkAnswer() {
-  if (selected < 0) {
-    document.getElementById("quizFeedback").textContent = "اختَر إجابة أولاً.";
-    return;
-  }
+  if (selected < 0) { document.getElementById("quizFeedback").textContent = "اختَر إجابة أولاً."; return; }
   if (selected === lessons[current].correct) {
     if (!quizPassed.includes(current)) quizPassed.push(current);
     save();
@@ -391,22 +195,19 @@ function checkAnswer() {
 }
 
 function checkPractical() {
-  const ok = ["c1", "c2", "c3", "c4"].every(function(id) {
-    const el = document.getElementById(id);
-    return el && el.checked;
-  });
+  let ok = ["c1", "c2", "c3", "c4"].every(id => document.getElementById(id)?.checked);
   if (ok && !practicalPassed.includes(current)) practicalPassed.push(current);
-  if (!ok) practicalPassed = practicalPassed.filter(function(x) { return x !== current; });
+  if (!ok) practicalPassed = practicalPassed.filter(x => x !== current);
   save();
   updateFinish();
 }
 
 function updateFinish() {
-  const l = lessons[current];
-  const ok = quizPassed.includes(current) && (l.first || practicalPassed.includes(current));
-  const b = document.getElementById("finishBtn");
+  let l = lessons[current];
+  let ok = quizPassed.includes(current) && (l.first || practicalPassed.includes(current));
+  let b = document.getElementById("finishBtn");
   if (b) b.disabled = !ok;
-  const h = document.getElementById("finishHint");
+  let h = document.getElementById("finishHint");
   if (h) h.textContent = ok ? "ممتاز! يمكنك الآن تسجيل إكمال الدرس." : "أجب عن السؤال" + (l.first ? "" : " وأكمل قائمة التطبيق العملي") + " لتفعيل زر إكمال الدرس.";
 }
 
@@ -423,23 +224,20 @@ function finishLesson() {
 
 function resetProgress() {
   if (confirm("هل تريد فعلاً إعادة ضبط جميع نقاطك والدروس المكتملة؟")) {
-    completed = [];
-    quizPassed = [];
-    practicalPassed = [];
-    points = 0;
+    completed = []; quizPassed = []; practicalPassed = []; points = 0;
     save();
     renderAll();
   }
 }
 
-document.getElementById("navHome").addEventListener("click", function() { showPage("home"); });
-document.getElementById("navLessons").addEventListener("click", function() { showPage("lessons"); });
-document.getElementById("navProgress").addEventListener("click", function() { showPage("progress"); });
-document.getElementById("navAbout").addEventListener("click", function() { showPage("about"); });
-document.getElementById("startBtn").addEventListener("click", function() { showPage("lessons"); });
-document.getElementById("backLessonsBtn").addEventListener("click", function() { showPage("lessons"); });
+document.getElementById("navHome").addEventListener("click", () => showPage("home"));
+document.getElementById("navLessons").addEventListener("click", () => showPage("lessons"));
+document.getElementById("navProgress").addEventListener("click", () => showPage("progress"));
+document.getElementById("navAbout").addEventListener("click", () => showPage("about"));
+document.getElementById("startBtn").addEventListener("click", () => showPage("lessons"));
+document.getElementById("backLessonsBtn").addEventListener("click", () => showPage("lessons"));
 document.getElementById("resetBtn").addEventListener("click", resetProgress);
-document.addEventListener("click", function(e) {
+document.addEventListener("click", e => {
   const btn = e.target.closest(".open-lesson-btn");
   if (btn) openLesson(Number(btn.dataset.index));
 });
