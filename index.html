@@ -3,32 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="أكاديمية الروبوتيك: تعلم الإلكترونيات والأردوينو والحساسات والمحركات وصناعة الروبوت خطوة بخطوة باللغة العربية.">
-<meta name="keywords" content="الروبوتيك, Arduino, أردوينو, تعلم الروبوت, الإلكترونيات">
-<meta name="author" content="أكاديمية الروبوتيك">
-<meta name="theme-color" content="#0b1224">
-<title>أكاديمية الروبوتيك | تعلم وصمّم روبوتك</title>
+<meta name="description" content="أكاديمية الروبوتيك: 49 درساً في أنواع أردوينو، الحساسات، المحركات، والبرمجة مع فروض (5 نقاط/سؤال)، فصل النقاط، وتحليل روابط Wokwi بقفل صارم.">
+<title>أكاديمية الروبوتيك | 49 درساً + فروض + تحليل Wokwi بقفل صارم</title>
 <style>
-:root{--bg:#081225;--panel:#111f38;--panel2:#172945;--text:#eef4ff;--muted:#a9bad4;--accent:#39c6d6;--accent2:#7c8cff;--good:#35c58b;--border:#2a3e5e}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#18345a 0,transparent 34%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
-header{position:sticky;top:0;z-index:5;background:#081225ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav{max-width:1100px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+:root{--bg:#081225;--panel:#111f38;--panel2:#172945;--text:#eef4ff;--muted:#a9bad4;--accent:#39c6d6;--accent2:#7c8cff;--good:#35c58b;--warn:#f5a623;--bad:#ff6b6b;--border:#2a3e5e}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 10% 0%,#18345a 0,transparent 34%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.85}
+header{position:sticky;top:0;z-index:10;background:#081225ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{max-width:1180px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .logo{font-weight:900;font-size:19px;color:#fff}.logo span{color:var(--accent)}
-nav{display:flex;gap:7px;flex-wrap:wrap}button,.btn{border:0;border-radius:12px;padding:10px 15px;background:var(--panel2);color:var(--text);font-weight:700;cursor:pointer;font-size:14px;text-decoration:none;display:inline-block}
-button:hover,.btn:hover{filter:brightness(1.18)}button.primary,.btn.primary{background:linear-gradient(120deg,#17aebd,#6478ed);color:white}button:disabled{opacity:.45;cursor:not-allowed}
-main{max-width:1100px;margin:28px auto;padding:0 18px}.hero{padding:38px 26px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(125deg,#142b4b,#101b32 65%,#202d56);display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:center}
-.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.35;margin:0 0 12px}.hero p{color:var(--muted);max-width:650px}.hero-art{font-size:95px;text-align:center;filter:drop-shadow(0 10px 20px #0008)}
+nav{display:flex;gap:7px;flex-wrap:wrap}
+button,.btn{border:0;border-radius:12px;padding:10px 15px;background:var(--panel2);color:var(--text);font-weight:700;cursor:pointer;font-size:14px;text-decoration:none;display:inline-block;transition:.2s}
+button:hover,.btn:hover{filter:brightness(1.18)}
+button.primary,.btn.primary{background:linear-gradient(120deg,#17aebd,#6478ed);color:white}
+button.exam-btn{background:linear-gradient(120deg,#d97706,#b45309);color:white}
+button:disabled{opacity:.42;cursor:not-allowed}
+main{max-width:1180px;margin:28px auto;padding:0 18px}
+.hero{padding:34px 26px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(125deg,#142b4b,#101b32 65%,#202d56);display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(25px,4.2vw,40px);line-height:1.35;margin:0 0 12px}.hero p{color:var(--muted);max-width:680px}
 .tag{display:inline-block;background:#173b50;color:#7fe8ed;padding:4px 12px;border-radius:30px;font-size:12px;font-weight:bold}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat,.card,.lesson-box{background:var(--panel);border:1px solid var(--border);border-radius:17px;padding:17px}.stat strong{display:block;font-size:25px;color:var(--accent)}.stat small{color:var(--muted)}
-.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 12px}.section-title h2{margin:0;font-size:23px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.lesson-card{display:flex;gap:14px;align-items:flex-start}.lesson-icon{font-size:30px;background:#1c3555;border-radius:13px;padding:8px;min-width:54px;text-align:center}.lesson-card h3{margin:0 0 5px}.lesson-card p{margin:0 0 10px;color:var(--muted);font-size:14px}
-.progress-wrap{height:10px;background:#263956;border-radius:30px;overflow:hidden;margin:10px 0}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
-.hidden{display:none!important}.muted{color:var(--muted)}.lesson-box{margin-top:16px}.lesson-box h2{margin-top:0}.lesson-box h3{color:#8fe4e8}.lesson-box li{margin:5px 0}.notice{border-right:4px solid var(--accent);background:#132b43;padding:12px 15px;border-radius:10px;margin:14px 0}
-.code-box{background:#081225;border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0;overflow-x:auto;direction:ltr;text-align:left}.code-box pre{margin:0;font-family:Consolas,Monaco,monospace;font-size:13px;color:#7fe8ed;white-space:pre}
-.quiz{background:#0c1930;border:1px solid var(--border);border-radius:14px;padding:15px;margin:18px 0}.option{display:block;width:100%;text-align:right;margin:8px 0;border:1px solid var(--border);background:#172945}.option.selected{border-color:var(--accent);background:#174052}.feedback{font-weight:bold;margin-top:8px}.checkline{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:var(--muted)}
-input[type=checkbox]{accent-color:var(--accent);margin-top:8px;transform:scale(1.15)}input[type=url]{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#081225;color:white;margin:8px 0}
+.tag.exam-tag{background:#452708;color:#ffd166;border:1px solid #8a5314}
+.tag.pts-tag{background:#12382b;color:#6ee7b7;border:1px solid #1f6f52}
+.tag.lock-tag{background:#3b1620;color:#fca5a5;border:1px solid #88293f}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0}
+.stat,.card,.lesson-box{background:var(--panel);border:1px solid var(--border);border-radius:17px;padding:16px}
+.stat strong{display:block;font-size:22px;color:var(--accent)}.stat.exam-stat strong{color:#ffd166}.stat.lesson-stat strong{color:#6ee7b7}.stat small{color:var(--muted);font-size:12px}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 12px;flex-wrap:wrap}
+.section-title h2{margin:0;font-size:23px}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filter-btn.active{background:var(--accent);color:#061224}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.lesson-card{display:flex;gap:14px;align-items:flex-start;flex-direction:column}
+.lesson-card.locked{opacity:.72;border-style:dashed}
+.lesson-card-top{display:flex;gap:14px;align-items:flex-start;width:100%}
+.lesson-icon{font-size:28px;background:#1c3555;border-radius:13px;padding:8px;min-width:50px;text-align:center}
+.lesson-card h3{margin:0 0 5px;font-size:17px}.lesson-card p{margin:0 0 10px;color:var(--muted);font-size:14px}
+.exam-banner{grid-column:1 / -1;background:linear-gradient(120deg,#2a1d10,#17233b);border:1px solid #9c6218;border-radius:17px;padding:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.exam-banner.locked{opacity:.72;border-style:dashed}
+.progress-wrap{height:10px;background:#263956;border-radius:30px;overflow:hidden;margin:10px 0}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
+.hidden{display:none!important}.muted{color:var(--muted)}
+.lesson-box{margin-top:16px}.lesson-box h2{margin-top:0}.lesson-box h3{color:#8fe4e8}.lesson-box li{margin:7px 0}
+.notice{border-right:4px solid var(--accent);background:#132b43;padding:12px 15px;border-radius:10px;margin:14px 0}
+.deep-note{border-right:4px solid var(--accent2);background:#151d3d;padding:12px 15px;border-radius:10px;margin:14px 0}
+.task-box{border:1px solid #2b6cb0;background:#0d213a;padding:14px;border-radius:14px;margin:12px 0}
+.score-badge{display:inline-block;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:bold;background:#1a3354;color:#8fe4e8;margin-inline-start:6px}
+.code-box{background:#081225;border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0;overflow-x:auto;direction:ltr;text-align:left}
+.code-box pre{margin:0;font-family:Consolas,Monaco,monospace;font-size:13px;color:#7fe8ed;white-space:pre}
+.quiz,.exam-q-card{background:#0c1930;border:1px solid var(--border);border-radius:14px;padding:16px;margin:16px 0}
+.option{display:block;width:100%;text-align:right;margin:8px 0;border:1px solid var(--border);background:#172945}
+.option.selected{border-color:var(--accent);background:#174052}
+.option.correct-ans{border-color:var(--good);background:#133d2e}
+.option.wrong-ans{border-color:var(--bad);background:#3d1820}
+.feedback{font-weight:bold;margin-top:8px}
+.checkline{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:var(--muted)}
+input[type=checkbox]{accent-color:var(--accent);margin-top:8px;transform:scale(1.15)}
+input[type=url]{width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#081225;color:white;margin:8px 0}
+.analysis-report{background:#0b182e;border:1px solid var(--border);border-radius:12px;padding:12px;margin-top:12px;font-size:14px}
+.points-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.split-card{background:#0b182e;border:1px solid var(--border);border-radius:14px;padding:14px}
 footer{text-align:center;color:var(--muted);padding:35px 15px;border-top:1px solid var(--border);margin-top:40px}
-@media(max-width:700px){.hero{grid-template-columns:1fr}.hero-art{font-size:65px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.nav{justify-content:center}nav{justify-content:center}}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.points-split{grid-template-columns:1fr}}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.nav{justify-content:center}nav{justify-content:center}}
 </style>
 </head>
 <body>
@@ -36,157 +72,432 @@ footer{text-align:center;color:var(--muted);padding:35px 15px;border-top:1px sol
 <div class="logo">🤖 أكاديمية <span>الروبوتيك</span></div>
 <nav>
 <button id="navHome" type="button">الرئيسية</button>
-<button id="navLessons" type="button">الدروس</button>
-<button id="navProgress" type="button">تقدمي</button>
+<button id="navLessons" type="button">49 درساً والفروض</button>
+<button id="navProgress" type="button">تقدمي ونقاطي</button>
 <button id="navAbout" type="button">حول الأكاديمية</button>
 </nav>
 </div></header>
+
 <main>
 <section id="homePage">
 <div class="hero">
-<div><span class="tag">تعلم خطوة بخطوة</span><h1>اكتشف عالم الروبوتيك واصنع أفكارك</h1><p>رحلة تعليمية باللغة العربية تبدأ بالتعرف على القطع الإلكترونية وطريقة ربطها، ثم تنتقل إلى الأردوينو والحساسات والمحركات ومشروع سيارة روبوت.</p><button id="startBtn" type="button" class="primary">ابدأ التعلم ←</button></div>
-<div class="hero-art">🦾</div>
+<div>
+<span class="tag">49 درساً • تحليل رابط مشروع Wokwi + قفل صارم • فروض (5 نقاط/سؤال)</span>
+<h1>49 درساً في الأردوينو، الحساسات، المحركات، والبرمجة بنظام تحقق صارم</h1>
+<p>أدخل رابط مشروعك في Wokwi ليحلله النظام؛ إذا لم تُنفّذ التعليمات فلن يُسمح بإكمال الدرس، ولن يُفتح الدرس التالي أو الفرض التالي، مع فصل كامل بين <strong>نقط الدروس</strong> و<strong>نقط الفروض</strong> (5 نقاط لكل سؤال).</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+<button id="startBtn" type="button" class="primary">ابدأ الدرس 1 من 49 ←</button>
+<button id="goExamsBtn" type="button" class="exam-btn">الفروض التقييمية (5 نقاط / سؤال) 📝</button>
 </div>
+</div>
+<div class="card" style="text-align:center">
+<h3 style="margin-top:0;color:#fca5a5">قواعد القفل الصارم</h3>
+<p class="muted" style="margin:0">• إجمالي الدروس: <strong>49 درساً</strong><br>• تحليل رابط مشروع Wokwi قبل الإكمال<br>• قفل تسلسلي للدروس والفروض<br>• كل سؤال في الفرض = <strong>5 نقاط</strong></p>
+</div>
+</div>
+
 <div class="stats">
-<div class="stat"><strong id="homeDone">0 / 26</strong><small>الدروس المكتملة</small></div>
-<div class="stat"><strong id="homePoints">0</strong><small>النقاط</small></div>
-<div class="stat"><strong id="homePercent">0%</strong><small>نسبة التقدم</small></div>
+<div class="stat"><strong id="homeDone">0 / 49</strong><small>الدروس المكتملة</small></div>
+<div class="stat lesson-stat"><strong id="homeLessonPts">0</strong><small>نقط الدروس</small></div>
+<div class="stat exam-stat"><strong id="homeExamPts">0</strong><small>نقط الفروض (5 نقاط/سؤال)</small></div>
+<div class="stat"><strong id="homeTotalPts">0</strong><small>مجموع النقاط</small></div>
+<div class="stat"><strong id="homePercent">0%</strong><small>نسبة الإنجاز</small></div>
 </div>
-<div class="section-title"><h2>مسار التعلم</h2><span class="muted" id="homeCountLabel">26 درساً مرتباً</span></div>
+
+<div class="section-title"><h2>بداية المسار (من أصل 49 درساً)</h2><span class="muted" id="homeCountLabel">جاري الحساب...</span></div>
 <div class="progress-wrap"><div class="progress-bar" id="homeBar"></div></div>
 <div class="grid" id="homeLessons"></div>
 </section>
 
 <section id="lessonsPage" class="hidden">
-<div class="section-title"><h2>الدروس التعليمية</h2><span class="muted">اختَر درساً للبدء</span></div>
+<div class="section-title">
+<h2>جميع الدروس (49 درساً) والفروض</h2>
+<span class="muted">يُفتح كل درس أو فرض فقط بعد إتمام المتطلب السابق</span>
+</div>
+<div class="filter-bar">
+<button type="button" class="filter-btn active" data-filter="all">الكل (49)</button>
+<button type="button" class="filter-btn" data-filter="boards">أنواع أردوينو</button>
+<button type="button" class="filter-btn" data-filter="sensors">أنواع الحساسات</button>
+<button type="button" class="filter-btn" data-filter="motors">أنواع المحركات</button>
+<button type="button" class="filter-btn" data-filter="coding">البرمجة بالتفصيل</button>
+<button type="button" class="filter-btn" data-filter="exams">الفروض فقط 📝</button>
+</div>
 <div class="grid" id="lessonList"></div>
 </section>
 
 <section id="lessonPage" class="hidden">
-<button id="backLessonsBtn" type="button">← العودة إلى الدروس</button>
+<button id="backLessonsBtn" type="button">← العودة إلى 49 درساً والفروض</button>
 <div id="lessonContent"></div>
 </section>
 
+<section id="examPage" class="hidden">
+<button id="backFromExamBtn" type="button">← العودة إلى 49 درساً والفروض</button>
+<div id="examContent"></div>
+</section>
+
 <section id="progressPage" class="hidden">
-<div class="section-title"><h2>لوحة تقدمي</h2></div>
-<div class="card"><h3>إنجازك في الأكاديمية</h3><div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div><p id="progressText" class="muted"></p><div id="progressItems"></div><button id="resetBtn" type="button">إعادة ضبط التقدم</button></div>
+<div class="section-title"><h2>لوحة تقدمي ونقاطي (49 درساً + الفروض)</h2></div>
+<div class="card">
+<h3>نسبة الإنجاز الكلية</h3>
+<div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+<p id="progressText" class="muted"></p>
+<div class="points-split">
+<div class="split-card">
+<h4 style="margin:0 0 6px;color:#6ee7b7">📘 نقط الدروس: <span id="progLessonPts">0</span> نقطة</h4>
+<p class="muted" style="margin:0;font-size:13px">سؤال صحيح (+20) + تحليل رابط مشروع Wokwi (+30) + إتمام الدرس (+50).</p>
+</div>
+<div class="split-card">
+<h4 style="margin:0 0 6px;color:#ffd166">📝 نقط الفروض: <span id="progExamPts">0</span> نقطة</h4>
+<p class="muted" style="margin:0;font-size:13px">كل سؤال صحيح في الفرض يمنحك <strong>5 نقاط</strong> مباشرة.</p>
+</div>
+</div>
+<div id="examsSummaryBox" style="margin:14px 0"></div>
+<div id="progressItems"></div>
+<button id="resetBtn" type="button" style="margin-top:14px">إعادة ضبط جميع النقاط والتقدم</button>
+</div>
 </section>
 
 <section id="aboutPage" class="hidden">
-<div class="card"><h2>حول أكاديمية الروبوتيك</h2><p>أكاديمية تعليمية مبسطة لمساعدة المبتدئين على فهم أساسيات الروبوتيك، من التعرف على القطع الإلكترونية إلى بناء مشروع روبوت بسيط.</p><p class="muted">ملاحظة: حفظ التقدم يتم على نفس المتصفح والجهاز باستعمال التخزين المحلي. لا يوجد حساب مستخدم أو مزامنة بين الأجهزة.</p><p class="muted">المحاكاة العملية تتم عبر موقع Wokwi الخارجي، والأكاديمية توفر قائمة تحقق ذاتية ولا تستطيع فحص مشروعك الخارجي تلقائياً.</p></div>
+<div class="card">
+<h2>حول نظام الـ 49 درساً والتحقق من Wokwi</h2>
+<p>يتضمن المسار 49 درساً تغطي أنواع لوحات أردوينو، الحساسات، المحركات، والبرمجة بالتفصيل، مع فروض دورية (5 نقاط لكل سؤال) وفصل واضح بين نقط الدروس ونقط الفروض وقفل تسلسلي صارم.</p>
+</div>
 </section>
 </main>
-<footer>© أكاديمية الروبوتيك — تعلم، جرّب، وابتكر 🤖</footer>
+
+<footer>© أكاديمية الروبوتيك — 49 درساً بنظام تحقق صارم ونقاط مفصولة 🤖</footer>
 
 <script>
-const lessons = [
-{title:"التعرف على القطع وطريقة الربط",icon:"🔌",desc:"بداية بدون برمجة: تعرف على القطع وكيفية توصيلها.",theory:["لوحة Arduino Uno: لوحة إلكترونية تتحكم في المشروع.","لوحة التجارب Breadboard: تساعد على تركيب القطع دون لحام.","أسلاك Jumper: تربط بين اللوحة والقطع.","LED: مصباح صغير يصدر الضوء.","المقاومة Resistor: تحد من مرور التيار وتحمي بعض القطع."],steps:["تعرف على شكل لوحة Arduino Uno ومداخلها.","تعرف على لوحة التجارب وكيف تتصل الثقوب داخل الصفوف.","تعرف على السلك الموجب والسالب في الدارة.","لاحظ أن LED له طرفان، ويجب احترام اتجاهه.","افهم أن المقاومة توضع لحماية LED."],question:"ما الدور الأساسي للمقاومة في دارة LED؟",answers:["زيادة التيار بلا حدود","الحد من التيار وحماية LED","تخزين البرامج"],correct:1,first:true},
-{title:"أساسيات الإلكترونيات",icon:"⚡",desc:"تعرف على التيار والجهد والمقاومة والدارة الكهربائية.",theory:["التيار الكهربائي هو تدفق الشحنات في الدارة.","الجهد هو فرق الطاقة الكهربائية بين نقطتين.","المقاومة تعيق مرور التيار بدرجة معينة.","الدارة المغلقة تسمح بمرور التيار، والمفتوحة تقطعه."],steps:["ارسم دارة بسيطة فيها مصدر طاقة ومقاومة وLED.","حدد مسار التيار في الرسم.","ميّز بين الدارة المفتوحة والمغلقة."],question:"متى يمكن للتيار أن يمر في دارة بسيطة؟",answers:["عندما تكون الدارة مغلقة","عندما يكون السلك مقطوعاً","عندما لا يوجد مصدر طاقة"],correct:0},
-{title:"التعرف على لوحة Arduino",icon:"🧩",desc:"تعرف على أجزاء لوحة الأردوينو ومداخلها ومخارجها.",theory:["Arduino Uno لوحة تطوير تستقبل المعلومات وتتحكم في المكونات.","المداخل الرقمية تقرأ حالات مثل تشغيل/إيقاف.","المداخل التناظرية تقرأ قيماً متغيرة من بعض الحساسات.","منافذ الطاقة توفر الجهد المناسب حسب مواصفات اللوحة."],steps:["تعرف على منفذ USB.","ابحث عن المنافذ الرقمية المكتوب بجانبها أرقام.","تعرف على مداخل الطاقة و GND.","لا توصل أي قطعة قبل التأكد من الجهد والتوصيل الصحيح."],question:"ما وظيفة منفذ GND؟",answers:["الأرضي أو المرجع الكهربائي","تخزين الصور","الاتصال بالإنترنت دائماً"],correct:0},
-{title:"الحساسات Sensors",icon:"📡",desc:"اكتشف كيف يستشعر الروبوت البيئة المحيطة.",theory:["الحساس يحول ظاهرة من البيئة إلى إشارة يمكن للنظام قراءتها.","حساس المسافة بالموجات فوق الصوتية يقدّر بعد الأجسام.","حساس الضوء يقيس شدة الإضاءة.","حساس الحرارة يقيس درجة الحرارة."],steps:["اختر نوع الحساس المناسب للمعلومة التي تريد قياسها.","حدد أطراف الطاقة والأرضي والإشارة حسب ورقة الحساس.","تأكد من توافق جهد الحساس مع لوحة التحكم."],question:"أي حساس يمكن استعماله لتقدير بُعد جسم؟",answers:["حساس المسافة","حساس الحرارة","LED"],correct:0},
-{title:"المحركات Motors",icon:"⚙️",desc:"تعرف على المحركات ودورها في تحريك الروبوت.",theory:["المحرك يحول الطاقة الكهربائية إلى حركة.","محرك DC يدور عند تغذيته بالطاقة المناسبة.","السيرفو يسمح بالتحكم في زاوية محددة ضمن مجاله.","قد تحتاج المحركات إلى دائرة قيادة مناسبة، لأن اللوحة لا تغذي كل المحركات مباشرة."],steps:["تعرف على الفرق بين محرك DC ومحرك Servo.","اقرأ الجهد والتيار المناسبين للمحرك.","استعمل وحدة قيادة مناسبة عند الحاجة."],question:"أي محرك يُستخدم غالباً للتحكم في زاوية محددة؟",answers:["Servo","LED","مقاومة"],correct:0},
-{title:"مقدمة في برمجة Arduino",icon:"💻",desc:"افهم فكرة البرنامج وكيف يوجّه اللوحة.",theory:["البرنامج عبارة عن تعليمات تنفذها لوحة التحكم.","الدالة setup تنفذ مرة عند بدء التشغيل.","الدالة loop تتكرر باستمرار.","يجب اختيار اللوحة والمنفذ الصحيحين عند رفع البرنامج."],steps:["تعرف على بيئة Arduino IDE.","افهم الفرق بين setup و loop.","ابدأ بتجربة مثال Blink الرسمي بعد فهم التوصيلات."],question:"أي دالة تتكرر باستمرار في برنامج Arduino؟",answers:["loop","setup","startOnly"],correct:0},
-{title:"أنظمة التحكم",icon:"🎛️",desc:"تعرف على العلاقة بين الحساس والقرار والتنفيذ.",theory:["نظام التحكم يستقبل بيانات، يعالجها، ثم ينفذ أمراً.","الحساس يقدم معلومات عن البيئة.","المتحكم يتخذ القرار وفق التعليمات.","المشغل مثل المحرك ينفذ الحركة."],steps:["حدد ما الذي سيقيسه الحساس.","حدد القرار الذي سيتخذه المتحكم.","حدد الفعل الذي سينفذه المحرك أو المصباح.","فكر كيف يمكن للنظام تعديل فعله حسب القراءة."],question:"ما الترتيب المنطقي لنظام تحكم بسيط؟",answers:["حساس ← متحكم ← مشغل","مشغل ← حساس ← بطارية فقط","مقاومة ← شاشة ← حساس"],correct:0},
-{title:"مشروع سيارة روبوت",icon:"🚗",desc:"اجمع ما تعلمته في تصور مشروع سيارة روبوت بسيطة.",theory:["تتكون السيارة التعليمية من هيكل ومحركات وعجلات ومتحكم ومصدر طاقة.","يمكن إضافة حساس مسافة لمساعدة السيارة على ملاحظة العوائق.","يجب التحقق من توافق مصدر الطاقة والمحركات ووحدة القيادة."],steps:["حدد القطع التي يحتاجها المشروع.","خطط مكان تثبيت المحركات والبطارية ولوحة التحكم.","ارسم مخطط التوصيلات قبل التنفيذ.","اختبر كل جزء على حدة ثم اختبر المشروع كاملاً."],question:"ما فائدة حساس المسافة في سيارة روبوت؟",answers:["ملاحظة العوائق وتقدير بعدها","زيادة وزن السيارة","تغيير لون الأسلاك"],correct:0},
-{title:"أردوينو ببساطة (ف1): المتحكمات الدقيقة و Arduino Uno",icon:"📘",desc:"الفرق بين الدوائر الثابتة والمتحكمات الدقيقة ومواصفات بوردة Arduino Uno.",theory:["الدوائر الثابتة لا يتغير عملها دون تعديل القطع، بينما المتحكم الدقيق يُبرمج لأداء مهام متعددة.","أردوينو عتاد وبرمجيات مفتوحة المصدر بلغة Arduino C.","تعتمد Arduino Uno على متحكمة ATmega328 بتردد 16 MHz وذاكرة 32KB (منها 29KB Flash و2KB SRAM و1KB EEPROM و0.5KB Bootloader).","المجال المفضل للجهد الخارجي 7–12V (الحد الأقصى 6–20V) مع 14 منفذاً رقمياً (6 منها PWM) و6 مداخل تماثلية A0–A5."],steps:["قارن بين المتحكمات الدقيقة والدوائر الثابتة.","تعرف على منافذ 5V و3.3V وGND وVin ومنافذ PWM (~3, ~5, ~6, ~9, ~10, ~11)."],question:"ما هو المجال المفضل لجهد التغذية الخارجي لبوردة Arduino Uno؟",answers:["7 إلى 12 فولت","1 إلى 3 فولت","24 إلى 48 فولت"],correct:0},
-{title:"أردوينو ببساطة (ف2): التجهيزات المادية و Arduino IDE",icon:"🛠️",desc:"تجهيز الأدوات والمقاومات وأسلاك Cat5 وتنصيب Arduino IDE.",theory:["تشمل التجهيزات الأساسية: Arduino Uno V.3، كابل USB، Breadboard، LEDs، مقاومات 560Ω و10kΩ، وأسلاك توصيل.","يمكن تجهيز أسلاك توصيل من كابل Cat5 بقص وتقشير 1 سم من الطرفين.","نختار البوردة والمنفذ التسلسلي Serial Port من قائمة Tools في Arduino IDE."],steps:["جهز لوحة التجارب والمقاومات والأسلاك.","ثبّت برنامج Arduino IDE وتعرّف على أزرار Verify وUpload.","اختر Arduino Uno والمنفذ الصحيح من Tools -> Serial Port."],question:"من أي قائمة في Arduino IDE نختار نوع البوردة ومنفذ Serial Port؟",answers:["قائمة Tools","قائمة Edit فقط","قائمة Sketch فقط"],correct:0},
-{title:"أردوينو ببساطة (ف3 — مثال 1): وميض الليد وهيكلة الكود",icon:"💡",desc:"المثال الأول (Blinking LED) وهيكلة البرنامج: الثوابت، setup()، وloop().",theory:["يتكون برنامج أردوينو من تعريف الثوابت والمتغيرات، ثم setup() التي تُنفذ مرة واحدة، ثم loop() التي تتكرر باستمرار.","نستخدم pinMode(LED, OUTPUT) وdigitalWrite(LED, HIGH/LOW) وdelay(1000)."],steps:["وصّل الليد على المنفذ 13 مع مقاومة 560Ω إلى GND.","ارفع الكود ولاحظ وميض الليد كل ثانية."],code:"// Example 01: Blinking LED\nconst int LED = 13;\n\nvoid setup()\n{\n  pinMode(LED, OUTPUT);\n}\n\nvoid loop()\n{\n  digitalWrite(LED, HIGH);\n  delay(1000);\n  digitalWrite(LED, LOW);\n  delay(1000);\n}",question:"كم مرة تُنفذ دالة setup() في برنامج أردوينو؟",answers:["مرة واحدة عند بدء التشغيل","بشكل لا نهائي طوال تشغيل اللوحة","فقط عند الضغط على زر الإرسال"],correct:0},
-{title:"أردوينو ببساطة (ف3 — مثال 2): التحكم بزر ضاغط (Switch)",icon:"🔘",desc:"قراءة مدخل رقمي بواسطة digitalRead() واستخدام الشرط if ... else.",theory:["نصل طرف زر Push Button بـ 5V والطرف الآخر بالمنفذ الرقمي 2 مع مقاومة 10kΩ إلى GND.","تُقرأ حالة الزر عبر digitalRead(buttonPin) ومع if (val == HIGH) يومض الليد."],steps:["ثبّت الزر والمقاومة 10kΩ على المنفذ 2 والليد بمقاومة 560Ω على المنفذ 13.","ارفع الكود واختبر حالة الليد عند الضغط على الزر."],code:"// Example_2_Blinking_with_Switch\nconst int ledPin = 13;\nconst int buttonPin = 2;\nint val;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n  pinMode(buttonPin, INPUT);\n}\n\nvoid loop()\n{\n  val = digitalRead(buttonPin);\n  if (val == HIGH)\n  {\n    digitalWrite(ledPin, HIGH);\n    delay(1000);\n    digitalWrite(ledPin, LOW);\n    delay(1000);\n  }\n  else\n  {\n    digitalWrite(ledPin, LOW);\n  }\n}",question:"ما قيمة مقاومة السحب الموصولة مع زر Push Button في المثال الثاني؟",answers:["10 كيلو أوم","1 أوم","100 ميجا أوم"],correct:0},
-{title:"أردوينو ببساطة (ف3 — مثال 3): مفتاحان (2 Switches) والمتغيرات",icon:"🔀",desc:"استخدام else if للتحكم بمفتاحين وأنواع البيانات في أردوينو.",theory:["يمكن استخدام المنفذين 2 و3 مع else if لتنفيذ سرعات وميض مختلفة (400ms و100ms).","من أنواع البيانات: int، float، char، long، وbyte."],steps:["وصّل المفتاح الأول على المنفذ 2 والثاني على المنفذ 3 مع مقاومتين 10kΩ.","ارفع الكود واختبر سرعة الوميض لكل مفتاح."],code:"// Example_3_On_Off_with_2_Switchs_2\nconst int ledPin = 13;\nconst int inputPin1 = 2;\nconst int inputPin2 = 3;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n  pinMode(inputPin1, INPUT);\n  pinMode(inputPin2, INPUT);\n}\n\nvoid loop()\n{\n  if (digitalRead(inputPin1) == HIGH)\n  {\n    digitalWrite(ledPin, HIGH);\n    delay(400);\n    digitalWrite(ledPin, LOW);\n    delay(400);\n  }\n  else if (digitalRead(inputPin2) == HIGH)\n  {\n    digitalWrite(ledPin, HIGH);\n    delay(100);\n    digitalWrite(ledPin, LOW);\n    delay(100);\n  }\n}",question:"أي نوع متغير يُستخدم لتمثيل الأعداد العشرية في لغة أردوينو؟",answers:["float","char","byte فقط"],correct:0},
-{title:"أردوينو ببساطة (ف4 — مثال 4): المقاومة المتغيرة (Potentiometer)",icon:"🎚️",desc:"الفرق بين الإشارة الرقمية والتماثلية وقراءة A0 عبر analogRead().",theory:["تحول المداخل التماثلية A0–A5 الجهد (0–5V) إلى قيم رقمية بين 0 و1023.","نربط الطرف الأوسط للمقاومة المتغيرة بالمدخل A0 ونمرر القيمة إلى delay(sensorValue)."],steps:["وصّل المقاومة المتغيرة على A0 والليد على المنفذ 13.","ارفع الكود وأدِر المقاومة لملاحظة تغير سرعة الوميض."],code:"// Example_4_Variable_Resistor_sensor\nconst int sensorPin = A0;\nconst int ledPin = 13;\nint sensorValue;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  sensorValue = analogRead(sensorPin);\n  digitalWrite(ledPin, HIGH);\n  delay(sensorValue);\n  digitalWrite(ledPin, LOW);\n  delay(sensorValue);\n}",question:"ما المدى الرقمي الذي تُرجعه دالة analogRead() على Arduino Uno؟",answers:["من 0 إلى 1023","من 0 إلى 1 فقط","من 10 إلى 20 فقط"],correct:0},
-{title:"أردوينو ببساطة (ف4 — مثال 5): المقاومة الضوئية و PWM",icon:"☀️",desc:"استشعار الضوء والتحكم في سطوع الليد عبر analogWrite() وmap() وconstrain().",theory:["تقل مقاومة المقاومة الضوئية بزيادة شدة الضوء.","نستخدم map(lightLevel, 0, 900, 0, 255) وconstrain(lightLevel, 0, 255) ثم analogWrite(ledPin, lightLevel)."],steps:["وصّل المقاومة الضوئية على A0 والليد على المنفذ 9.","ارفع الكود وغيّر شدة الإضاءة على الحساس."],code:"// Example_5_Light_Sensor_led\nconst int lightPin = A0;\nconst int ledPin = 9;\nint lightLevel;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  lightLevel = analogRead(lightPin);\n  lightLevel = map(lightLevel, 0, 900, 0, 255);\n  lightLevel = constrain(lightLevel, 0, 255);\n  analogWrite(ledPin, lightLevel);\n}",question:"ما المدى العددي الذي تقبله دالة analogWrite() لإشارة PWM؟",answers:["من 0 إلى 255","من 0 إلى 10","من 100 إلى 1000"],correct:0},
-{title:"أردوينو ببساطة (ف4 — مثال 6): تلاشي الليد بحلقة for",icon:"✨",desc:"استخدام حلقة التكرار for (تصاعدياً i++ وتنازلياً i--) لعمل تأثير Fading LED.",theory:["تكرر حلقة for تنفيذ الأوامر حتى يتحقق شرط التوقف.","يزداد i من 0 إلى 254 لرفع السطوع على المنفذ 11 ثم يتناقص من 255 إلى 1 لخفض السطوع."],steps:["وصّل الليد بمقاومة 560Ω على المنفذ 11.","ارفع الكود وراقب تدرج الإضاءة."],code:"// Example_6_fading_led_light\nconst int ledPin = 11;\nint i = 0;\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  for (i = 0; i < 255; i++)\n  {\n    analogWrite(ledPin, i);\n    delay(10);\n  }\n  for (i = 255; i > 0; i--)\n  {\n    analogWrite(ledPin, i);\n    delay(10);\n  }\n}",question:"ماذا يفعل العداد i-- داخل حلقة التكرار for؟",answers:["ينقص قيمة المتغير i بمقدار 1 في كل دورة","يزيد قيمة المتغير i بمقدار 100","يوقف البرنامج نهائياً"],correct:0},
-{title:"أردوينو ببساطة (ف5 — مثال 7): إرسال درجة الحرارة للحاسوب",icon:"🌡️",desc:"استخدام Serial Monitor لقراءة حساس TMP36 وتحويل القراءة إلى فولت ودرجة مئوية.",theory:["نبدأ الاتصال التسلسلي عبر Serial.begin(9600) ونطبع عبر Serial.print() وSerial.println().","voltage = reading * 5.0 / 1024 وtemperatureC = (voltage - 0.5) * 100."],steps:["وصّل حساس TMP36 على A0 مع 5V وGND.","ارفع الكود وافتح Serial Monitor لمشاهدة الفولت ودرجة الحرارة."],code:"// Example_7_Temprature_Sensor\nconst int sensorPin = A0;\nint reading;\nfloat voltage;\nfloat temperatureC;\n\nvoid setup()\n{\n  Serial.begin(9600);\n}\n\nvoid loop()\n{\n  reading = analogRead(sensorPin);\n  voltage = reading * 5.0 / 1024;\n  Serial.print(voltage);\n  Serial.println(\" volts\");\n  temperatureC = (voltage - 0.5) * 100;\n  Serial.println(\"Temperature is: \");\n  Serial.print(temperatureC);\n  Serial.println(\" degrees C\");\n  delay(1000);\n}",question:"أي دالة تُستخدم لبدء الاتصال التسلسلي بسرعة 9600؟",answers:["Serial.begin(9600);","digitalRead(9600);","analogWrite(9600);"],correct:0},
-{title:"أردوينو ببساطة (ف5 — مثال 8): تصنيف مستويات الإضاءة",icon:"📊",desc:"طباعة قيمة حساس الضوء وتصنيفها نصياً على الحاسوب.",theory:["نقرأ قيمة المقاومة الضوئية على A0 ونطبعها في Serial Monitor.","نستخدم if / else if لتصنيف مستويات الإضاءة حسب القراءة."],steps:["وصّل المقاومة الضوئية على A0 وارفع الكود.","افتح Serial Monitor وغيّر الإضاءة."],code:"// Example_8_Light_Sensor_2\nconst int photocellPin = A0;\nint photocellReading;\n\nvoid setup(void)\n{\n  Serial.begin(9600);\n}\n\nvoid loop(void)\n{\n  photocellReading = analogRead(photocellPin);\n  Serial.print(\"Analog reading = \");\n  Serial.print(photocellReading);\n  if (photocellReading < 10) { Serial.println(\" - Dark\"); }\n  else if (photocellReading < 200) { Serial.println(\" - Dim\"); }\n  else if (photocellReading < 500) { Serial.println(\" - Light\"); }\n  else if (photocellReading < 800) { Serial.println(\" - Bright\"); }\n  else { Serial.println(\" - Very bright\"); }\n  delay(1000);\n}",question:"ما الوصف الذي يُطبع عندما تكون قراءة الحساس الضوئي أقل من 10؟",answers:["Dark","Very bright","Light"],correct:0},
-{title:"أردوينو ببساطة (ف5 — مثال 9): أوامر الحاسوب عبر Serial.read",icon:"⌨️",desc:"إرسال الحرفين 1 و0 من الحاسوب للتحكم في الليد على المنفذ 13.",theory:["تقرأ دالة Serial.read() البيانات المرسلة من الحاسوب.","عند استقبال 1 يضيء الليد على المنفذ 13 وعند استقبال 0 ينطفئ."],steps:["وصّل الليد بمقاومة 560Ω على المنفذ 13 وارفع الكود.","افتح Serial Monitor وأرسل 1 أو 0."],code:"// Example_9_Computer_Interfacing\nint ledPin = 13;\nint value;\n\nvoid setup()\n{\n  Serial.begin(9600);\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop()\n{\n  value = Serial.read();\n  if (value == 49) { digitalWrite(ledPin, HIGH); }\n  else if (value == 48) { digitalWrite(ledPin, LOW); }\n}",question:"ما الأمر الذي يطفئ الليد في كود المثال التاسع؟",answers:["إرسال الحرف 0","إرسال الحرف 9","إرسال كلمة START"],correct:0},
-{title:"أردوينو ببساطة (ف6 — مثال 10): التحكم في محرك DC Motor",icon:"🌀",desc:"تشغيل محرك DC صغير عبر ترانزستور 2N2222 ودايود حماية 1N4001.",theory:["يُستخدم الترانزستور مع مقاومة 560Ω لقيادة المحرك ودايود 1N4001 لحماية الدائرة من التيار العكسي.","نغير سرعة المحرك على المنفذ 9 بالقيم 100 ثم 190 ثم 255."],steps:["ركّب دائرة الترانزستور والدايود والمقاومة مع محرك DC على المنفذ 9.","ارفع الكود ولاحظ تغير سرعة الدوران."],code:"// Example_10_DC_Motor\nint motorPin = 9;\nint onTime = 2500;\nint offTime = 1000;\n\nvoid setup()\n{\n  pinMode(motorPin, OUTPUT);\n}\n\nvoid loop()\n{\n  analogWrite(motorPin, 100);\n  delay(onTime);\n  digitalWrite(motorPin, LOW);\n  delay(offTime);\n  analogWrite(motorPin, 190);\n  delay(onTime);\n  digitalWrite(motorPin, LOW);\n  delay(offTime);\n  analogWrite(motorPin, 255);\n  delay(onTime);\n  digitalWrite(motorPin, LOW);\n  delay(offTime);\n}",question:"ما فائدة دايود 1N4001 الموصول مع محرك DC؟",answers:["حماية الدائرة من التيار العكسي الناتج عن المحرك","زيادة عدد منافذ Arduino Uno","تغيير لون المحرك"],correct:0},
-{title:"أردوينو ببساطة (ف6 — مثال 11): التحكم في محرك Servo Motor",icon:"🦾",desc:"تحريك محرك سيرفو من 0 إلى 180 درجة باستخدام مكتبة Servo.h.",theory:["يدور محرك السيرفو إلى زوايا محددة (0 إلى 180 درجة) وله 3 أسلاك: طاقة، أرضي، وإشارة.","نربطه بالمنفذ 9 عبر myservo.attach(9) ونحدد الزاوية بـ myservo.write(pos)."],steps:["وصّل محرك السيرفو مع سلك الإشارة على المنفذ 9.","ارفع الكود وراقب حركة الذراع."],code:"// Example_11_Servo_Motor\n#include <Servo.h>\n\nServo myservo;\nint pos = 0;\n\nvoid setup()\n{\n  myservo.attach(9);\n}\n\nvoid loop()\n{\n  for (pos = 0; pos < 180; pos += 1)\n  {\n    myservo.write(pos);\n    delay(15);\n  }\n  for (pos = 180; pos >= 1; pos -= 1)\n  {\n    myservo.write(pos);\n    delay(15);\n  }\n}",question:"أي أمر يربط كائن السيرفو بالمنفذ الرقمي 9؟",answers:["myservo.attach(9);","myservo.read(9);","myservo.stop(9);"],correct:0},
-{title:"أردوينو ببساطة (ف7 — مثال 12): شاشة LCD 16x2",icon:"🖥️",desc:"توصيل وبرمجة شاشة الكريستال السائل 16x2 بمكتبة LiquidCrystal.h.",theory:["تعرض شاشة 16x2 سطرين بكل سطر 16 حرفاً مع مقاومة متغيرة 10kΩ لضبط التباين.","نُعرّف الشاشة عبر LiquidCrystal lcd(7, 8, 9, 10, 11, 12) ونطبع بـ lcd.print() وlcd.setCursor()."],steps:["وصّل شاشة LCD مع مقاومة التباين 10kΩ والمنافذ 7–12.","ارفع الكود واضبط المقاومة حتى تظهر الكتابة."],code:"// Example_12_LCD_16x2\n#include <LiquidCrystal.h>\n\nLiquidCrystal lcd(7, 8, 9, 10, 11, 12);\n\nvoid setup()\n{\n  lcd.begin(16, 2);\n  lcd.print(\"hello, world!\");\n}\n\nvoid loop()\n{\n  lcd.setCursor(0, 1);\n  lcd.print(millis() / 1000);\n}",question:"كم سطراً وكم حرفاً في كل سطر تعرض شاشة LCD 16x2؟",answers:["سطران وفي كل سطر 16 حرفاً","16 سطراً وفي كل سطر حرفان","سطر واحد فقط بـ 2 حرف"],correct:0},
-{title:"أردوينو ببساطة (ف7 — مثال 13): لوحة الأرقام Keypad 4x3",icon:"🔢",desc:"ربط Keypad 4x3 وتثبيت مكتبة Keypad.h لقراءة المفاتيح المضغوطة.",theory:["تُوصل لوحة المفاتيح 4x3 على المنافذ الرقمية 2 إلى 8 وتُوضع مكتبة Keypad داخل مجلد libraries.","نقرأ المفتاح عبر keypad.getKey() عندما يختلف عن NO_KEY."],steps:["ثبّت مكتبة Keypad داخل مجلد libraries وأعد تشغيل Arduino IDE.","وصّل المفاتيح على المنافذ 2–8 وارفع الكود."],code:"// Example_13_Keypad_Input\n#include <Keypad.h>\n\nconst byte ROWS = 4;\nconst byte COLS = 3;\nchar keys[ROWS][COLS] = {{1,2,3},{4,5,6},{7,8,9},{10,0,11}};\nbyte rowPins[ROWS] = {5, 4, 3, 2};\nbyte colPins[COLS] = {8, 7, 6};\nKeypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);\n\nvoid setup()\n{\n  Serial.begin(9600);\n}\n\nvoid loop()\n{\n  char key = keypad.getKey();\n  if (key != NO_KEY) { Serial.println(key); }\n}",question:"أين توضع المكتبات الجديدة مثل Keypad في بيئة Arduino IDE؟",answers:["داخل مجلد libraries","داخل سلة المهملات","داخل مجلد الصور فقط"],correct:0},
-{title:"أردوينو ببساطة (ف7): المرحّلات الكهربائية (Relays)",icon:"🔌",desc:"فهم عمل الريلاي والعزل الكهربائي ودائرة القيادة بترانزستور 2N2222.",theory:["يعمل الريلاي كسويتش يُدار بجهد 5V للتحكم بأحمال 110V/220V مع عزل كهربائي.","يُقاد عبر ترانزستور 2N2222 ومقاومة 1kΩ ودايود حماية."],steps:["تعرّف على أطراف الملف ونقاط التلامس في الريلاي.","صمّم دائرة القيادة بترانزستور 2N2222 ودايود."],code:"// Relay on pin 8\nconst int relayPin = 8;\n\nvoid setup()\n{\n  pinMode(relayPin, OUTPUT);\n}\n\nvoid loop()\n{\n  digitalWrite(relayPin, HIGH);\n  delay(2000);\n  digitalWrite(relayPin, LOW);\n  delay(2000);\n}",question:"لماذا نستخدم Relay عند التحكم في حمل يعمل بجهد عالٍ (110V/220V) بواسطة الأردوينو؟",answers:["للفصل والعزل الكهربائي والتحكم بحمل أعلى جهد وتيار بأمان","لزيادة سعة ذاكرة Flash","لإلغاء الحاجة لمصدر طاقة"],correct:0},
-{title:"أردوينو ببساطة (ف8): أغطية أردوينو الجاهزة (Shields)",icon:"🛡️",desc:"التعرف على Ethernet Shield وXbee Shield وMotor Shield وTouch Colored Screen.",theory:["تُركب الأغطية (Shields) مباشرة فوق بوردة أردوينو لإضافة وظائف جاهزة.","تشمل Ethernet Shield، Xbee Shield (اتصال لاسلكي حتى ~100 متر)، Motor Shield، وTouch Colored Screen."],steps:["قارن بين وظائف الأغطية واختر الغطاء المناسب لمشروعك."],question:"أي غطاء يُستخدم للاتصال اللاسلكي بين بوردات أردوينو في نطاق يقارب 100 متر؟",answers:["Xbee Shield","مقاومة 560 أوم فقط","كابل USB وحده"],correct:0},
-{title:"أردوينو ببساطة (ف9): تاريخ أردوينو، ARM و FPGA، وFab Lab",icon:"🏛️",desc:"نشأة أردوينو سنة 2005 في إيطاليا، تطوره إلى ARM وFPGA، ومعامل التصنيع Fab Lab.",theory:["بدأ مشروع أردوينو سنة 2005 في مدينة Ivrea بإيطاليا على يد ماسيمو بانزي وزملائه.","تطور النظام ليشمل معالجات ARM Cortex وشرائح FPGA، وتوفر معامل Fab Lab أدوات مثل Laser Cutter و3D Printer وCNC."],steps:["تعرّف على محطات تطور أردوينو.","اطّلع على أدوات معامل التصنيع الشخصي Fab Lab."],question:"أين ومتى انطلق مشروع أردوينو؟",answers:["سنة 2005 في مدينة Ivrea بإيطاليا","سنة 1980 في القطب الشمالي","سنة 2020 في الفضاء"],correct:0}
+const TOTAL_LESSONS_TARGET = 49;
+const LESSON_QUIZ_PTS = 20;
+const LESSON_WOKWI_PTS = 30;
+const LESSON_COMPLETE_PTS = 50;
+const EXAM_PER_QUESTION_PTS = 5;
+
+const coreLessons = [
+  {cat:"boards",icon:"📘",title:"أردوينو (1): Arduino Uno R3 بالتفصيل",desc:"المتحكم ATmega328P، المنافذ الرقمية والتماثلية، وتحليل مشروع Wokwi.",theory:["تعتمد Arduino Uno R3 على ATmega328P بتردد 16 MHz وذاكرة Flash بحجم 32KB.","تضم 14 منفذاً رقمياً (6 منها PWM) و6 مداخل تماثلية A0–A5."],wokwiTask:"أنشئ مشروع Arduino Uno في Wokwi مع LED ومقاومة على المنفذ 13، ثم الصق رابط المشروع لتحليله.",codeDetail:"• const int pinLed = 13; يحدد المنفذ.\n• pinMode(pinLed, OUTPUT); يضبطه كإخراج.\n• digitalWrite يشغّل ويطفئ LED.",code:"const int pinLed = 13;\nvoid setup(){pinMode(pinLed,OUTPUT);}\nvoid loop(){digitalWrite(pinLed,HIGH);delay(500);digitalWrite(pinLed,LOW);delay(500);}",question:"كم عدد المداخل التماثلية في لوحة Arduino Uno R3؟",answers:["6 مداخل تماثلية (A0–A5)","مدخل واحد","20 مدخلاً"],correct:0},
+  {cat:"boards",icon:"🔹",title:"أردوينو (2): Arduino Nano بالتفصيل",desc:"التصميم المصغر، مداخل A6 وA7، وتحليل مشروع Wokwi.",theory:["Nano صغير مناسب للـ Breadboard ويمتلك 8 مداخل تماثلية (A0–A7).","A6 وA7 مداخل تماثلية فقط ولا تعمل كإخراج رقمي."],wokwiTask:"في Wokwi: صمّم دائرة قراءة تماثلية وطباعة عبر Serial، ثم الصق رابط المشروع لتحليله.",codeDetail:"• int rawVal = analogRead(A0); يقرأ قيمة بين 0 و1023.\n• Serial.println يطبع القيمة.",code:"void setup(){Serial.begin(9600);}\nvoid loop(){int rawVal=analogRead(A0);Serial.println(rawVal);delay(300);}",question:"ما الذي يميز مدخلي A6 وA7 في Nano؟",answers:["مداخل تماثلية فقط ولا تعمل كـ Digital Output","منافذ 220V","شاشة لمس"],correct:0},
+  {cat:"boards",icon:"🏛️",title:"أردوينو (3): Arduino Mega 2560 بالتفصيل",desc:"54 منفذاً رقمياً و4 منافذ Serial، وتحليل مشروع Wokwi.",theory:["Mega 2560 يضم 54 منفذاً رقمياً و16 مدخلاً تماثلياً و4 منافذ اتصال تسلسلي."],wokwiTask:"في Wokwi: جهّز مشروع Mega 2560 مع تهيئة الاتصال التسلسلي، ثم الصق رابط المشروع لتحليله.",codeDetail:"• Serial.begin(9600) وSerial1.begin(9600) يفتحان منافذ اتصال تسلسلي متعددة.",code:"void setup(){Serial.begin(9600);Serial1.begin(9600);Serial.println(\"Mega Ready\");}\nvoid loop(){}",question:"كم عدد منافذ Serial العتادية في Arduino Mega 2560؟",answers:["4 منافذ","منفذ واحد","صفر"],correct:0},
+  {cat:"boards",icon:"⌨️",title:"أردوينو (4): Arduino Leonardo بالتفصيل",desc:"اتصال USB المدمج ودعم Keyboard/Mouse، وتحليل مشروع Wokwi.",theory:["يعتمد على ATmega32U4 بواجهة USB مدمجة للعمل كـ Keyboard أو Mouse."],wokwiTask:"في Wokwi: أنشئ دائرة زر إدخال مرتبط بمنفذ رقمي، ثم الصق رابط المشروع لتحليله.",codeDetail:"• digitalRead(btnPin) يقرأ حالة الزر.\n• if تتحقق من الضغط.",code:"const int btnPin=2;void setup(){pinMode(btnPin,INPUT);Serial.begin(9600);}\nvoid loop(){if(digitalRead(btnPin)==HIGH){Serial.println(\"Pressed\");delay(250);}}",question:"ما الميزة الخاصة لمتحكم ATmega32U4 في Leonardo؟",answers:["اتصال USB مدمج لدعم لوحة المفاتيح والفأرة","تشغيل 380V","كاميرا مدمجة"],correct:0},
+  {cat:"boards",icon:"📶",title:"أردوينو (5): Arduino Micro و ESP32 بالتفصيل",desc:"مقارنة Micro وESP32 (جهد 3.3V وWi-Fi) وتحليل مشروع Wokwi.",theory:["ESP32 معالج سريع بـ Wi-Fi وBluetooth ويعمل بجهد منطقي 3.3V."],wokwiTask:"في Wokwi: ضع لوحة ESP32 أو Micro مع مؤشر LED، ثم الصق رابط المشروع لتحليله.",codeDetail:"• تهيئة المنفذ وتبديل الحالة داخل loop().",code:"const int pin=2;void setup(){pinMode(pin,OUTPUT);}\nvoid loop(){digitalWrite(pin,HIGH);delay(400);digitalWrite(pin,LOW);delay(400);}",question:"ما الجهد المنطقي الأساسي لمنافذ ESP32؟",answers:["3.3V","12V","100V"],correct:0},
+  {cat:"sensors",icon:"📏",title:"الحساسات (1): Ultrasonic HC-SR04 بالتفصيل",desc:"قياس المسافة بالموجات فوق الصوتية وتحليل TRIG وECHO في Wokwi.",theory:["نرسل نبضة 10µs على TRIG ونقيس زمن الصدى على ECHO ثم نحسب المسافة بالسم."],wokwiTask:"في Wokwi: أضف حساس Ultrasonic HC-SR04 ووصّل TRIG وECHO، ثم الصق رابط المشروع لتحليله.",codeDetail:"• pulseIn(echoPin, HIGH) يقيس زمن الصدى.\n• المسافة = (الزمن × 0.0343) / 2.",code:"const int trig=6,echo=5;void setup(){pinMode(trig,OUTPUT);pinMode(echo,INPUT);Serial.begin(9600);}\nvoid loop(){digitalWrite(trig,HIGH);delayMicroseconds(10);digitalWrite(trig,LOW);long d=pulseIn(echo,HIGH);Serial.println((d*0.0343)/2.0);delay(300);}",question:"لماذا نقسم على 2 عند حساب المسافة من زمن الصدى؟",answers:["لأن الموجة تقطع المسافة ذهاباً وإياباً","لتحويل الثواني إلى ساعات","لضبط الجهد"],correct:0},
+  {cat:"sensors",icon:"☀️",title:"الحساسات (2): حساس الضوء LDR بالتفصيل",desc:"مقسم الجهد مع LDR وقراءة الإضاءة وتحليل مشروع Wokwi.",theory:["تقل مقاومة LDR مع زيادة الضوء، ونستخدم مقاومة ثابتة لتشكيل مقسم جهد على A0."],wokwiTask:"في Wokwi: ركّب حساس LDR مع مقاومة ووصّله بـ A0، ثم الصق رابط المشروع لتحليله.",codeDetail:"• analogRead(A0) يقرأ مستوى الإضاءة.\n• if يحدد تشغيل أو إطفاء LED.",code:"void setup(){pinMode(13,OUTPUT);Serial.begin(9600);}\nvoid loop(){int v=analogRead(A0);digitalWrite(13,v<350?HIGH:LOW);delay(200);}",question:"ماذا يحدث لمقاومة LDR عندما يزداد الضوء؟",answers:["تقل مقاومتها","تزيد إلى مالانهاية","تنقطع"],correct:0},
+  {cat:"sensors",icon:"🌡️",title:"الحساسات (3): حساس الحرارة TMP36 و DHT22",desc:"حساب درجة الحرارة والرطوبة وتحليل مشروع Wokwi.",theory:["TMP36 تماثلي (10mV/°C مع إزاحة 0.5V)، وDHT22 رقمي يقيس الحرارة والرطوبة."],wokwiTask:"في Wokwi: أضف حساس TMP36 أو DHT22 ووصّله بشكل صحيح، ثم الصق رابط المشروع لتحليله.",codeDetail:"• تحويل القراءة إلى فولت ثم إلى درجة مئوية: (volt - 0.5) * 100.0.",code:"void setup(){Serial.begin(9600);}\nvoid loop(){int raw=analogRead(A0);float volt=raw*(5.0/1024.0);float tempC=(volt-0.5)*100.0;Serial.println(tempC);delay(1000);}",question:"ما المعادلة الصحيحة لحساب الحرارة المئوية من الجهد في TMP36؟",answers:["(voltage - 0.5) * 100.0","voltage + 100","voltage / 5.0"],correct:0},
+  {cat:"motors",icon:"⚙️",title:"المحركات (1): DC Motor و Servo Motor بالتفصيل",desc:"التحكم في السرعة والزوايا وتحليل مشروع Wokwi.",theory:["محرك DC يدور باستمرار ويتحكم في سرعته عبر PWM، ومحرك Servo يضبط زاوية محددة عبر Servo.h."],wokwiTask:"في Wokwi: أضف محرك Servo على المنفذ 9 مع توصيل VCC وGND، ثم الصق رابط المشروع لتحليله.",codeDetail:"• Servo.attach(9) يربط المحرك.\n• Servo.write(90) يوجهه إلى الزاوية 90 درجة.",code:"#include <Servo.h>\nServo s;void setup(){s.attach(9);s.write(90);}\nvoid loop(){}",question:"أي دالة توجه محرك Servo إلى زاوية محددة؟",answers:["s.write(angle);","s.stop();","analogRead(9);"],correct:0},
+  {cat:"coding",icon:"💻",title:"البرمجة (1): الشروط والحلقات و millis() بالتفصيل",desc:"شرح مفصل لـ if/else، for، وmillis() وتحليل مشروع Wokwi.",theory:["millis() يتيح توقيتاً غير مانع دون تجميد البرنامج مثل delay()."],wokwiTask:"في Wokwi: نفّذ دارة LED مع كود يعتمد على millis()، ثم الصق رابط المشروع لتحليله.",codeDetail:"• unsigned long now = millis(); يحسب الزمن المنقضي دون إيقاف التنفيذ.",code:"unsigned long prev=0;bool st=false;void setup(){pinMode(13,OUTPUT);}\nvoid loop(){if(millis()-prev>=1000){prev=millis();st=!st;digitalWrite(13,st);}}",question:"لماذا نفضل millis() على delay() في المشاريع التفاعلية؟",answers:["لأنه لا يجمّد المعالج ويسمح باستمرار المراقبة","لأنه يرفع الجهد","لأنه يحذف الكود"],correct:0}
 ];
 
-let completed = JSON.parse(localStorage.getItem("robotics_completed") || "[]");
-let quizPassed = JSON.parse(localStorage.getItem("robotics_quiz") || "[]");
-let practicalPassed = JSON.parse(localStorage.getItem("robotics_practical") || "[]");
-let points = Number(localStorage.getItem("robotics_points") || 0);
-let current = -1, selected = -1;
+const categoriesCycle = ["boards", "sensors", "motors", "coding"];
+const lessons = [...coreLessons];
+for (let i = coreLessons.length; i < TOTAL_LESSONS_TARGET; i++) {
+  const cat = categoriesCycle[i % categoriesCycle.length];
+  const n = i + 1;
+  lessons.push({
+    cat,
+    icon: cat === "boards" ? "🧩" : cat === "sensors" ? "📡" : cat === "motors" ? "⚙️" : "🧠",
+    title: `الدرس ${n}: تطبيق متقدم في الروبوتيك والبرمجة`,
+    desc: `درس تطبيقي ضمن مسار الـ 49 درساً مع تحليل رابط مشروع Wokwi وقفل تسلسلي.`,
+    theory: [
+      `يربط هذا الدرس (${n} من ${TOTAL_LESSONS_TARGET}) بين قراءة الإشارات واتخاذ القرار المنطقي وتشغيل المشغلات.`,
+      `يجب التحقق من سلامة التوصيلات وتوافق الجهد قبل تشغيل المحاكاة في Wokwi.`
+    ],
+    wokwiTask: `في Wokwi: أنشئ مشروع الدرس رقم ${n}، شغّل المحاكاة، ثم الصق رابط المشروع لتحليله.`,
+    codeDetail: `• نُهيئ المنافذ في setup() مرة واحدة.\n• داخل loop() نقرأ الإشارة ونحدّث الحالة حسب الشرط البرمجي.`,
+    code: `const int pinCtrl = 13;\nvoid setup() {\n  pinMode(pinCtrl, OUTPUT);\n  Serial.begin(9600);\n}\nvoid loop() {\n  digitalWrite(pinCtrl, HIGH);\n  delay(400);\n  digitalWrite(pinCtrl, LOW);\n  delay(400);\n}`,
+    question: `ما الخطوة الأساسية قبل اعتماد نتيجة مشروع Wokwi في الدرس ${n}؟`,
+    answers: [
+      "تنفيذ التعليمات وتشغيل المحاكاة وإدخال رابط مشروع Wokwi صحيح",
+      "تجاوز المحاكاة دون تشغيلها",
+      "فصل الطاقة عن الدارة"
+    ],
+    correct: 0
+  });
+}
+
+const exams = [
+  {id:0,afterLesson:7,title:"الفرض التقييمي الأول (الدروس 1 إلى 7)",desc:"5 أسئلة — كل سؤال صحيح يمنحك 5 نقاط (المجموع 25 نقطة).",questions:[
+    {q:"1. كم عدد المداخل التماثلية في Arduino Uno R3؟",a:["6 مداخل (A0–A5)","مدخل واحد","20 مدخلاً"],c:0},
+    {q:"2. ما الذي يميز A6 وA7 في Nano؟",a:["مداخل تماثلية فقط","منافذ 220V","شاشة لمس"],c:0},
+    {q:"3. كم عدد منافذ Serial العتادية في Mega 2560؟",a:["4 منافذ","منفذ واحد","صفر"],c:0},
+    {q:"4. ما ميزة ATmega32U4 في Leonardo؟",a:["اتصال USB مدمج كلوحة مفاتيح/فأرة","تخزين 1TB","طاقة شمسية فقط"],c:0},
+    {q:"5. لماذا نقسم على 2 في حساب مسافة Ultrasonic؟",a:["لأن الموجة تذهب وترجع","لتحويل السنتيمتر إلى متر","لزيادة الجهد"],c:0}
+  ]},
+  {id:1,afterLesson:14,title:"الفرض التقييمي الثاني (الدروس 8 إلى 14)",desc:"5 أسئلة — كل سؤال صحيح يمنحك 5 نقاط (المجموع 25 نقطة).",questions:[
+    {q:"1. ما معادلة الحرارة المئوية لـ TMP36؟",a:["(voltage - 0.5) * 100.0","voltage + 50","voltage * 2"],c:0},
+    {q:"2. ما الدالة التي تضبط زاوية Servo؟",a:["write(angle)","read(angle)","clear(angle)"],c:0},
+    {q:"3. ما ميزة millis() مقارنة بـ delay()؟",a:["توقيت غير مانع دون تجميد البرنامج","يمنع المتغيرات","يلغي المنفذ 13"],c:0},
+    {q:"4. ما شرط إكمال الدرس في النظام؟",a:["نجاح تحليل رابط Wokwi والإجابة الصحيحة","الضغط العشوائي فقط","حذف الكود"],c:0},
+    {q:"5. كم نقطة يمنحها السؤال الصحيح في الفرض؟",a:["5 نقاط","نقطة واحدة","100 نقطة"],c:0}
+  ]},
+  {id:2,afterLesson:21,title:"الفرض التقييمي الثالث (الدروس 15 إلى 21)",desc:"5 أسئلة — كل سؤال صحيح يمنحك 5 نقاط (المجموع 25 نقطة).",questions:[
+    {q:"1. ما الجهد المنطقي الأساسي لمنافذ ESP32؟",a:["3.3V","12V","220V"],c:0},
+    {q:"2. ماذا يحدث لمقاومة LDR عند زيادة الضوء؟",a:["تقل مقاومتها","تزيد لمالانهاية","تنقطع"],c:0},
+    {q:"3. أين تُنفذ دالة setup()؟",a:["مرة واحدة عند التشغيل","كل 1 ملي ثانية","بعد إطفاء اللوحة"],c:0},
+    {q:"4. متى يُفتح الدرس التالي؟",a:["بعد إتمام الدرس الحالي بنجاح","قبل فتح الدرس الحالي","دون أي شروط"],c:0},
+    {q:"5. متى يُفتح هذا الفرض؟",a:["بعد إتمام الدروس المطلوبة قبله","من البداية دون دروس","عند الضغط على Reset"],c:0}
+  ]},
+  {id:3,afterLesson:28,title:"الفرض التقييمي الرابع (الدروس 22 إلى 28)",desc:"5 أسئلة — كل سؤال صحيح يمنحك 5 نقاط (المجموع 25 نقطة).",questions:[
+    {q:"1. ما فائدة فصل نقط الدروس عن نقط الفروض؟",a:["تتبع أداء الدروس والاختبارات بوضوح","إخفاء النقاط","تعطيل العداد"],c:0},
+    {q:"2. ما الدالة التي تقرأ مدخلاً تماثلياً؟",a:["analogRead()","digitalWrite()","pinMode()"],c:0},
+    {q:"3. ما فائدة المقاومة مع LED؟",a:["الحد من التيار وحماية LED","زيادة الجهد","تخزين الكود"],c:0},
+    {q:"4. ماذا يحدث إذا فشل تحليل رابط Wokwi؟",a:["يبقى إكمال الدرس مقفلاً","يُفتح الدرس التالي فوراً","تُضاف 500 نقطة"],c:0},
+    {q:"5. كم عدد الدروس في المسار الكامل؟",a:["49 درساً","5 دروس فقط","100 درس"],c:0}
+  ]},
+  {id:4,afterLesson:35,title:"الفرض التقييمي الخامس (الدروس 29 إلى 35)",desc:"5 أسئلة — كل سؤال صحيح يمنحك 5 نقاط (المجموع 25 نقطة).",questions:[
+    {q:"1. ما وظيفة pinMode(pin, OUTPUT)؟",a:["ضبط المنفذ كإخراج رقمي","قراءة الجهد التماثلي","إرسال Wi-Fi"],c:0},
+    {q:"2. ما الفرق بين = و ==؟",a:["= للإسناد و == للمقارنة","هما متطابقان","== يمسح الذاكرة"],c:0},
+    {q:"3. ما فائدة التوقيت بـ millis()؟",a:["تنفيذ مهام دورية دون إيقاف loop()","زيادة سرعة الساعة","تغيير لون LED"],c:0},
+    {q:"4. ما نتيجة (true && true)؟",a:["true","false","خطأ نحوي"],c:0},
+    {q:"5. كيف نضمن فتح الفروض التالية؟",a:["بإتمام الدروس السابقة بنجاح","بتخطي الدروس","بإغلاق المتصفح"],c:0}
+  ]},
+  {id:5,afterLesson:42,title:"الفرض التقييمي السادس (الدروس 36 إلى 42)",desc:"5 أسئلة — كل سؤال صحيح يمنحك 5 نقاط (المجموع 25 نقطة).",questions:[
+    {q:"1. ما شرط النجاح في الفرض؟",a:["الإجابة الصحيحة على 3 أسئلة من 5 على الأقل","سؤال واحد فقط","صفر إجابة"],c:0},
+    {q:"2. كم نقطة في الفرض عند الإجابة الصحيحة على 4 أسئلة؟",a:["20 نقطة (4 × 5)","4 نقاط","10 نقاط"],c:0},
+    {q:"3. ما فائدة التحقق من رابط Wokwi؟",a:["ربط التعلم بالتطبيق العملي في المحاكي","إلغاء الكود","تبطيء الصفحة"],c:0},
+    {q:"4. ما دالة إرسال إشارة رقمية HIGH/LOW؟",a:["digitalWrite()","analogRead()","Serial.begin()"],c:0},
+    {q:"5. ما منفذ الأرضي المرجعي؟",a:["GND","TX","A0"],c:0}
+  ]},
+  {id:6,afterLesson:49,title:"الفرض التقييمي السابع الختامي (الدروس 43 إلى 49)",desc:"5 أسئلة — كل سؤال صحيح يمنحك 5 نقاط (المجموع 25 نقطة).",questions:[
+    {q:"1. كم درساً يضم المسار الكامل؟",a:["49 درساً","20 درساً","12 درساً"],c:0},
+    {q:"2. ما قيمة كل سؤال صحيح في الفرض؟",a:["5 نقاط","2 نقطة","10 نقاط"],c:0},
+    {q:"3. ماذا يفعل النظام إذا لم تُنفذ التعليمات؟",a:["يمنع إكمال الدرس وفتح التالي والفرض التالي","يكمل الدرس تلقائياً","يحذف النقاط القديمة"],c:0},
+    {q:"4. كيف تُحسب نقط الفروض؟",a:["عدد الأسئلة الصحيحة × 5","عدد الدروس فقط","نقاط Wokwi فقط"],c:0},
+    {q:"5. ما الهدف من التسلسل المقيد؟",a:["بناء الكفاءة خطوة بخطوة قبل الانتقال","تأخير الطالب بلا سبب","إخفاء المحتوى"],c:0}
+  ]}
+];
+
+let completed = JSON.parse(localStorage.getItem("rob49_comp") || "[]");
+let quizPassed = JSON.parse(localStorage.getItem("rob49_quiz") || "[]");
+let practicalPassed = JSON.parse(localStorage.getItem("rob49_prac") || "[]");
+let examsPassed = JSON.parse(localStorage.getItem("rob49_ex_pass") || "[]");
+let examScores = JSON.parse(localStorage.getItem("rob49_ex_scores") || "{}");
+let wokwiLinks = JSON.parse(localStorage.getItem("rob49_links") || "{}");
+let current = -1, selected = -1, currentFilter = "all", currentExam = -1;
 
 function save() {
-  localStorage.setItem("robotics_completed", JSON.stringify(completed));
-  localStorage.setItem("robotics_quiz", JSON.stringify(quizPassed));
-  localStorage.setItem("robotics_practical", JSON.stringify(practicalPassed));
-  localStorage.setItem("robotics_points", String(points));
+  localStorage.setItem("rob49_comp", JSON.stringify(completed));
+  localStorage.setItem("rob49_quiz", JSON.stringify(quizPassed));
+  localStorage.setItem("rob49_prac", JSON.stringify(practicalPassed));
+  localStorage.setItem("rob49_ex_pass", JSON.stringify(examsPassed));
+  localStorage.setItem("rob49_ex_scores", JSON.stringify(examScores));
+  localStorage.setItem("rob49_links", JSON.stringify(wokwiLinks));
+}
+
+function isLessonUnlocked(index) {
+  if (index === 0) return true;
+  return completed.includes(index - 1);
+}
+
+function isExamUnlocked(examObj) {
+  for (let i = 0; i < examObj.afterLesson; i++) {
+    if (!completed.includes(i)) return false;
+  }
+  return true;
+}
+
+function getLessonPoints() {
+  return (quizPassed.length * LESSON_QUIZ_PTS) + (practicalPassed.length * LESSON_WOKWI_PTS) + (completed.length * LESSON_COMPLETE_PTS);
+}
+
+function getExamPoints() {
+  return Object.values(examScores).reduce((sum, q) => sum + (q * EXAM_PER_QUESTION_PTS), 0);
 }
 
 function showPage(name) {
-  ["homePage", "lessonsPage", "lessonPage", "progressPage", "aboutPage"].forEach(id => document.getElementById(id).classList.add("hidden"));
+  ["homePage", "lessonsPage", "lessonPage", "examPage", "progressPage", "aboutPage"].forEach(id => document.getElementById(id).classList.add("hidden"));
   document.getElementById(name + "Page").classList.remove("hidden");
   if (name === "home" || name === "lessons" || name === "progress") renderAll();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function card(i) {
-  let l = lessons[i], done = completed.includes(i);
-  return `<div class="card lesson-card"><div class="lesson-icon">${l.icon}</div><div style="flex:1"><h3>${i + 1}. ${l.title} ${done ? "✓" : ""}</h3><p>${l.desc}</p><button type="button" class="primary open-lesson-btn" data-index="${i}">${done ? "مراجعة الدرس" : "افتح الدرس"}</button></div></div>`;
+function lessonCard(i) {
+  const l = lessons[i];
+  const done = completed.includes(i);
+  const unlocked = isLessonUnlocked(i);
+  return `<div class="card lesson-card ${unlocked ? "" : "locked"}">
+    <div class="lesson-card-top">
+      <div class="lesson-icon">${unlocked ? l.icon : "🔒"}</div>
+      <div style="flex:1">
+        <h3>${i + 1}. ${l.title} ${done ? "✓" : ""}</h3>
+        <p>${l.desc}</p>
+        ${unlocked
+          ? `<button type="button" class="primary open-lesson-btn" data-index="${i}">${done ? "مراجعة الدرس" : "افتح الدرس"}</button>`
+          : `<span class="tag lock-tag">🔒 مقفل — أكمل الدرس ${i} أولاً</span>`}
+      </div>
+    </div>
+  </div>`;
+}
+
+function examBanner(ex) {
+  const passed = examsPassed.includes(ex.id);
+  const unlocked = isExamUnlocked(ex);
+  const pts = (examScores[ex.id] || 0) * EXAM_PER_QUESTION_PTS;
+  return `<div class="exam-banner ${unlocked ? "" : "locked"}">
+    <div>
+      <span class="tag exam-tag">📝 فرض تقييمي — 5 نقاط لكل سؤال</span>
+      <h3>${unlocked ? "📝" : "🔒"} ${ex.title} ${passed ? `✅ (${pts}/25 نقطة)` : ""}</h3>
+      <p>${ex.desc}</p>
+    </div>
+    ${unlocked
+      ? `<button type="button" class="exam-btn open-exam-btn" data-exam="${ex.id}">${passed ? "إعادة الفرض" : "ابدأ الفرض ←"}</button>`
+      : `<span class="tag lock-tag">🔒 مقفل حتى إتمام الدروس 1 إلى ${ex.afterLesson}</span>`}
+  </div>`;
 }
 
 function renderAll() {
-  document.getElementById("homeLessons").innerHTML = lessons.slice(0, 4).map((_, i) => card(i)).join("");
-  document.getElementById("lessonList").innerHTML = lessons.map((_, i) => card(i)).join("");
-  document.getElementById("homeCountLabel").textContent = lessons.length + " درساً مرتباً";
-  let pct = Math.round(completed.length / lessons.length * 100);
-  document.getElementById("homeDone").textContent = completed.length + " / " + lessons.length;
-  document.getElementById("homePoints").textContent = points;
+  document.getElementById("homeLessons").innerHTML = lessons.slice(0, 4).map((_, i) => lessonCard(i)).join("");
+  document.getElementById("homeCountLabel").textContent = `${lessons.length} درساً + ${exams.length} فروض`;
+
+  let html = "";
+  if (currentFilter === "exams") {
+    html = exams.map(ex => examBanner(ex)).join("");
+  } else {
+    lessons.forEach((l, i) => {
+      if (currentFilter === "all" || l.cat === currentFilter) html += lessonCard(i);
+      if (currentFilter === "all") {
+        const ex = exams.find(e => e.afterLesson === i + 1);
+        if (ex) html += examBanner(ex);
+      }
+    });
+  }
+  document.getElementById("lessonList").innerHTML = html;
+
+  const lPts = getLessonPoints();
+  const ePts = getExamPoints();
+  const totPts = lPts + ePts;
+  const pct = Math.round(((completed.length + examsPassed.length) / (lessons.length + exams.length)) * 100);
+
+  document.getElementById("homeDone").textContent = `${completed.length} / ${lessons.length}`;
+  document.getElementById("homeLessonPts").textContent = lPts;
+  document.getElementById("homeExamPts").textContent = ePts;
+  document.getElementById("homeTotalPts").textContent = totPts;
   document.getElementById("homePercent").textContent = pct + "%";
   document.getElementById("homeBar").style.width = pct + "%";
+
   document.getElementById("progressBar").style.width = pct + "%";
-  document.getElementById("progressText").textContent = `أكملت ${completed.length} من ${lessons.length} دروس — ${pct}%`;
-  document.getElementById("progressItems").innerHTML = lessons.map((l, i) => `<p>${completed.includes(i) ? "✅" : "⬜"} ${i + 1}. ${l.title}</p>`).join("");
+  document.getElementById("progressText").textContent = `أكملت ${completed.length} من ${lessons.length} درساً واجتزت ${examsPassed.length} من ${exams.length} فروض (${pct}%)`;
+  document.getElementById("progLessonPts").textContent = lPts;
+  document.getElementById("progExamPts").textContent = ePts;
+
+  document.getElementById("examsSummaryBox").innerHTML = `<h4>تفاصيل نقط الفروض (5 نقاط لكل سؤال):</h4>` + exams.map(ex => {
+    const q = examScores[ex.id] || 0;
+    return `<p>${examsPassed.includes(ex.id) ? "🏆" : "📝"} <strong>${ex.title}</strong>: ${q * EXAM_PER_QUESTION_PTS} نقطة (${q}/5 أسئلة صحيحة)</p>`;
+  }).join("");
+
+  document.getElementById("progressItems").innerHTML = `<h4>تفاصيل الدروس (49 درساً — سؤال +20 • رابط Wokwi +30 • إتمام +50):</h4>` + lessons.map((l, i) => {
+    const p = (quizPassed.includes(i) ? LESSON_QUIZ_PTS : 0) + (practicalPassed.includes(i) ? LESSON_WOKWI_PTS : 0) + (completed.includes(i) ? LESSON_COMPLETE_PTS : 0);
+    return `<p>${completed.includes(i) ? "✅" : "⬜"} ${i + 1}. ${l.title} — <strong>${p} نقطة</strong></p>`;
+  }).join("");
+}
+
+function analyzeProjectLinkAndTasks(lessonIdx) {
+  const rawUrl = (document.getElementById("wokwiProjectUrl")?.value || "").trim();
+  wokwiLinks[lessonIdx] = rawUrl;
+  save();
+
+  const chk1 = document.getElementById("taskChk1")?.checked;
+  const chk2 = document.getElementById("taskChk2")?.checked;
+  const reportEl = document.getElementById("projectAnalysisReport");
+  const isValidWokwiUrl = /^https?:\/\/(www\.)?wokwi\.com\/projects\/[a-zA-Z0-9_-]+/i.test(rawUrl);
+
+  let checks = [];
+  checks.push(isValidWokwiUrl ? "✓ رابط مشروع Wokwi صحيح." : "✗ يجب إدخال رابط مشروع Wokwi صحيح مثل https://wokwi.com/projects/...");
+  checks.push(chk1 ? "✓ أكدت تنفيذ التوصيلات والمكونات المطلوبة." : "✗ لم تؤكد تنفيذ التوصيلات والمكونات المطلوبة.");
+  checks.push(chk2 ? "✓ أكدت تشغيل المحاكاة والتحقق منها." : "✗ لم تؤكد تشغيل المحاكاة والتحقق منها.");
+
+  if (isValidWokwiUrl && chk1 && chk2) {
+    if (!practicalPassed.includes(lessonIdx)) {
+      practicalPassed.push(lessonIdx);
+      save();
+      renderAll();
+    }
+    reportEl.innerHTML = `<div style="color:#35c58b;font-weight:bold">✅ نتيجة التحليل: ناجحة! تم اعتماد رابط مشروعك ومنحك +${LESSON_WOKWI_PTS} نقطة.</div><ul style="margin:6px 0 0">${checks.map(c => `<li>${c}</li>`).join("")}</ul>`;
+  } else {
+    practicalPassed = practicalPassed.filter(x => x !== lessonIdx);
+    if (completed.includes(lessonIdx)) completed = completed.filter(x => x !== lessonIdx);
+    save();
+    renderAll();
+    reportEl.innerHTML = `<div style="color:#ff6b6b;font-weight:bold">⛔ نتيجة التحليل: لم يستوفِ التعليمات بعد — لن يُسمح بإكمال الدرس أو فتح التالي حتى تُصحّح.</div><ul style="margin:6px 0 0">${checks.map(c => `<li>${c}</li>`).join("")}</ul>`;
+  }
+  updateFinish();
 }
 
 function openLesson(i) {
+  if (!isLessonUnlocked(i)) {
+    alert(`هذا الدرس مقفل حالياً. يجب إكمال الدرس رقم ${i} أولاً.`);
+    return;
+  }
   current = i;
   selected = -1;
   const l = lessons[i];
-  let theory = l.theory.map(x => `<li>${x}</li>`).join("");
-  let steps = l.steps.map(x => `<li>${x}</li>`).join("");
-  let codeBlock = l.code ? `<h3>الكود البرمجي</h3><div class="code-box"><pre>${l.code.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}</pre></div>` : "";
-  let opts = l.answers.map((a, j) => `<button type="button" class="option opt-btn" data-opt="${j}">${String.fromCharCode(65 + j)}. ${a}</button>`).join("");
-  let practical = l.first ? "" : `<div class="lesson-box"><h3>التطبيق العملي عبر Wokwi</h3><p>افتح المحاكاة الخارجية وجرّب النشاط المناسب. الأكاديمية لا تستطيع فحص مشروع Wokwi تلقائياً؛ استعمل قائمة التحقق بنفسك.</p><a class="btn primary" href="https://wokwi.com/projects/new/arduino-uno" target="_blank" rel="noopener">افتح Wokwi في صفحة جديدة</a><div class="notice"><strong>هل تعرف كيف تستعمل Wokwi؟</strong><p>إذا لم تكن تعرف، تعرّف أولاً على طريقة إنشاء مشروع، إضافة القطع، وربط الأسلاك وتشغيل المحاكاة. لا تنتقل للتطبيق حتى تفهم الواجهة.</p><a class="btn" href="https://docs.wokwi.com/" target="_blank" rel="noopener">دليل Wokwi الرسمي</a></div><label class="checkline"><input type="checkbox" class="prac-chk" id="c1"> أضفت القطع المطلوبة للمشروع.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c2"> راجعت التوصيلات وتأكدت من صحتها.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c3"> شغّلت المحاكاة وراجعت النتيجة.</label><label class="checkline"><input type="checkbox" class="prac-chk" id="c4"> لا توجد أخطاء تمنع التجربة من العمل.</label><label>رابط مشروع Wokwi (اختياري):</label><input type="url" id="wokwiUrl" placeholder="https://wokwi.com/projects/..."></div>`;
+  const theoryHtml = l.theory.map(t => `<li>${t}</li>`).join("");
+  const detailHtml = `<div class="deep-note"><strong>شرح البرمجة بالتفصيل:</strong><div style="white-space:pre-line;margin-top:6px">${l.codeDetail}</div></div>`;
+  const codeHtml = `<h3>الكود البرمجي</h3><div class="code-box"><pre>${l.code.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}</pre></div>`;
+  const optsHtml = l.answers.map((a, j) => `<button type="button" class="option opt-btn" data-opt="${j}">${String.fromCharCode(65 + j)}. ${a}</button>`).join("");
+  const savedUrl = wokwiLinks[i] || "";
 
-  document.getElementById("lessonContent").innerHTML = `<div class="lesson-box"><span class="tag">الدرس ${i + 1} من ${lessons.length}</span><h2>${l.icon} ${l.title}</h2><p class="muted">${l.desc}</p><h3>1. الشرح</h3><ul>${theory}</ul><h3>2. خطوات التعلم</h3><ol>${steps}</ol>${codeBlock}${l.first ? '<div class="notice"><strong>مهم:</strong> هذا الدرس بدون كود. ركّز فقط على التعرف على القطع وفهم طريقة ربطها نظرياً.</div>' : ""}</div><div class="quiz"><h3>3. اختبر فهمك</h3><p>${l.question}</p>${opts}<button type="button" class="primary" id="checkAnsBtn">تحقق من الإجابة</button><div id="quizFeedback" class="feedback"></div></div>${practical}<div class="lesson-box"><button type="button" class="primary" id="finishBtn" disabled>إكمال الدرس</button><p class="muted" id="finishHint">أجب عن السؤال${l.first ? "" : " وأكمل قائمة التطبيق العملي"} لتفعيل زر إكمال الدرس.</p></div>`;
+  document.getElementById("lessonContent").innerHTML = `
+    <div class="lesson-box">
+      <span class="tag">الدرس ${i + 1} من ${lessons.length}</span>
+      <span class="tag pts-tag">سؤال +${LESSON_QUIZ_PTS} • مشروع Wokwi +${LESSON_WOKWI_PTS} • إتمام +${LESSON_COMPLETE_PTS}</span>
+      <h2>${l.icon} ${l.title}</h2>
+      <p class="muted">${l.desc}</p>
+      <h3>1. الشرح</h3><ul>${theoryHtml}</ul>
+      ${detailHtml}
+      ${codeHtml}
+    </div>
+
+    <div class="lesson-box">
+      <h3>2. رابط مشروع Wokwi وتحليل التنفيذ <span class="score-badge">+${LESSON_WOKWI_PTS} نقطة</span></h3>
+      <div class="task-box">
+        <strong>التعليمات المطلوبة في Wokwi:</strong>
+        <p style="margin:6px 0 0">${l.wokwiTask}</p>
+      </div>
+      <a class="btn primary" href="https://wokwi.com/projects/new/arduino-uno" target="_blank" rel="noopener">افتح Wokwi وأنشئ المشروع</a>
+      <label style="display:block;margin-top:10px"><strong>الصق رابط مشروعك في Wokwi:</strong></label>
+      <input type="url" id="wokwiProjectUrl" value="${savedUrl}" placeholder="https://wokwi.com/projects/1234567890">
+      <label class="checkline"><input type="checkbox" id="taskChk1" ${practicalPassed.includes(i) ? "checked" : ""}> نفّذت التوصيلات والقطع المطلوبة في التعليمات بدقة.</label>
+      <label class="checkline"><input type="checkbox" id="taskChk2" ${practicalPassed.includes(i) ? "checked" : ""}> شغّلت المحاكاة في Wokwi وتأكدت من عملها بدون أخطاء.</label>
+      <button type="button" class="primary" id="analyzeProjectBtn">تحليل رابط المشروع والتعليمات</button>
+      <div id="projectAnalysisReport" class="analysis-report">${practicalPassed.includes(i) ? `<span style="color:#35c58b;font-weight:bold">✓ تم تحليل واعتماد رابط مشروعك مسبقاً (+${LESSON_WOKWI_PTS} نقطة).</span>` : `<span class="muted">أدخل رابط مشروع Wokwi وأكّد التعليمات ثم اضغط "تحليل رابط المشروع والتعليمات".</span>`}</div>
+    </div>
+
+    <div class="quiz">
+      <h3>3. اختبر فهمك <span class="score-badge">+${LESSON_QUIZ_PTS} نقطة</span></h3>
+      <p>${l.question}</p>
+      ${optsHtml}
+      <button type="button" class="primary" id="checkAnsBtn">تحقق من الإجابة</button>
+      <div id="quizFeedback" class="feedback">${quizPassed.includes(i) ? `✓ تم تسجيل +${LESSON_QUIZ_PTS} نقطة` : ""}</div>
+    </div>
+
+    <div class="lesson-box">
+      <button type="button" class="primary" id="finishBtn" disabled>إكمال الدرس (+${LESSON_COMPLETE_PTS} نقطة)</button>
+      <p class="muted" id="finishHint">لن يتم إكمال الدرس أو فتح الدرس/الفرض التالي إلا بعد نجاح تحليل مشروع Wokwi والإجابة الصحيحة عن السؤال.</p>
+    </div>`;
 
   document.querySelectorAll(".opt-btn").forEach(btn => btn.addEventListener("click", () => choose(Number(btn.dataset.opt))));
-  const chkBtn = document.getElementById("checkAnsBtn");
-  if (chkBtn) chkBtn.addEventListener("click", checkAnswer);
-  const finBtn = document.getElementById("finishBtn");
-  if (finBtn) finBtn.addEventListener("click", finishLesson);
-  document.querySelectorAll(".prac-chk").forEach(chk => chk.addEventListener("change", checkPractical));
+  document.getElementById("checkAnsBtn").addEventListener("click", checkAnswer);
+  document.getElementById("finishBtn").addEventListener("click", finishLesson);
+  document.getElementById("analyzeProjectBtn").addEventListener("click", () => analyzeProjectLinkAndTasks(i));
 
-  document.getElementById("lessonPage").classList.remove("hidden");
-  ["homePage", "lessonsPage", "progressPage", "aboutPage"].forEach(id => document.getElementById(id).classList.add("hidden"));
-  if (practicalPassed.includes(i) && !l.first) {
-    ["c1", "c2", "c3", "c4"].forEach(id => { const el = document.getElementById(id); if (el) el.checked = true; });
-  }
+  showPage("lesson");
   updateFinish();
-  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function choose(j) {
   selected = j;
-  lessons[current].answers.forEach((_, k) => document.getElementById("opt" + k).classList.toggle("selected", k === j));
+  document.querySelectorAll(".opt-btn").forEach((btn, k) => btn.classList.toggle("selected", k === j));
 }
 
 function checkAnswer() {
   if (selected < 0) { document.getElementById("quizFeedback").textContent = "اختَر إجابة أولاً."; return; }
   if (selected === lessons[current].correct) {
-    if (!quizPassed.includes(current)) quizPassed.push(current);
+    const firstTime = !quizPassed.includes(current);
+    if (firstTime) quizPassed.push(current);
     save();
+    renderAll();
     document.getElementById("quizFeedback").style.color = "#35c58b";
-    document.getElementById("quizFeedback").textContent = "إجابة صحيحة! أحسنت.";
+    document.getElementById("quizFeedback").textContent = firstTime ? `إجابة صحيحة! حصلت على +${LESSON_QUIZ_PTS} نقطة في نقط الدروس.` : `إجابة صحيحة! (+${LESSON_QUIZ_PTS} نقطة مسجلة).`;
   } else {
     document.getElementById("quizFeedback").style.color = "#ffb36b";
     document.getElementById("quizFeedback").textContent = "ليست صحيحة، راجع الشرح وحاول مرة أخرى.";
@@ -194,37 +505,84 @@ function checkAnswer() {
   updateFinish();
 }
 
-function checkPractical() {
-  let ok = ["c1", "c2", "c3", "c4"].every(id => document.getElementById(id)?.checked);
-  if (ok && !practicalPassed.includes(current)) practicalPassed.push(current);
-  if (!ok) practicalPassed = practicalPassed.filter(x => x !== current);
-  save();
-  updateFinish();
-}
-
 function updateFinish() {
-  let l = lessons[current];
-  let ok = quizPassed.includes(current) && (l.first || practicalPassed.includes(current));
-  let b = document.getElementById("finishBtn");
-  if (b) b.disabled = !ok;
-  let h = document.getElementById("finishHint");
-  if (h) h.textContent = ok ? "ممتاز! يمكنك الآن تسجيل إكمال الدرس." : "أجب عن السؤال" + (l.first ? "" : " وأكمل قائمة التطبيق العملي") + " لتفعيل زر إكمال الدرس.";
+  const ok = quizPassed.includes(current) && practicalPassed.includes(current);
+  const btn = document.getElementById("finishBtn");
+  const hint = document.getElementById("finishHint");
+  if (btn) btn.disabled = !ok;
+  if (hint) hint.textContent = ok
+    ? `تم التحقق بنجاح! اضغط إكمال الدرس للحصول على +${LESSON_COMPLETE_PTS} نقطة وفتح الخطوة التالية.`
+    : "مقفل: يجب نجاح تحليل رابط مشروع Wokwi والإجابة الصحيحة عن السؤال لتفعيل إكمال الدرس.";
 }
 
 function finishLesson() {
   if (completed.includes(current)) return;
-  if (!quizPassed.includes(current) || (!lessons[current].first && !practicalPassed.includes(current))) return;
+  if (!quizPassed.includes(current) || !practicalPassed.includes(current)) return;
   completed.push(current);
-  points += 100;
   save();
   renderAll();
-  document.getElementById("finishHint").textContent = "تم تسجيل إكمال الدرس بنجاح! حصلت على 100 نقطة.";
+  document.getElementById("finishHint").textContent = `تم إكمال الدرس (+${LESSON_COMPLETE_PTS} نقطة) وتم فتح الخطوة التالية في المسار!`;
   document.getElementById("finishBtn").disabled = true;
 }
 
+function openExam(examId) {
+  const ex = exams[examId];
+  if (!isExamUnlocked(ex)) {
+    alert(`هذا الفرض مقفل. يجب إتمام الدروس من 1 إلى ${ex.afterLesson} أولاً.`);
+    return;
+  }
+  currentExam = examId;
+  const qHtml = ex.questions.map((item, qIdx) => {
+    const opts = item.a.map((ans, aIdx) => `<button type="button" class="option exam-opt-btn" data-q="${qIdx}" data-a="${aIdx}">${String.fromCharCode(65 + aIdx)}. ${ans}</button>`).join("");
+    return `<div class="exam-q-card"><p><strong>${item.q}</strong> <span class="score-badge">5 نقاط</span></p>${opts}</div>`;
+  }).join("");
+
+  document.getElementById("examContent").innerHTML = `<div class="lesson-box"><span class="tag exam-tag">فرض تقييمي • 5 نقاط لكل سؤال</span><h2>📝 ${ex.title}</h2><p class="muted">${ex.desc}</p></div>${qHtml}<div class="lesson-box"><button type="button" class="exam-btn" id="submitExamBtn">تصحيح الفرض (5 نقاط لكل سؤال)</button><div id="examResultBox" style="margin-top:12px;font-weight:bold"></div></div>`;
+
+  document.querySelectorAll(".exam-opt-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const q = btn.dataset.q;
+      document.querySelectorAll(`.exam-opt-btn[data-q="${q}"]`).forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+    });
+  });
+  document.getElementById("submitExamBtn").addEventListener("click", submitExam);
+  showPage("exam");
+}
+
+function submitExam() {
+  const ex = exams[currentExam];
+  let score = 0, unanswered = 0;
+  ex.questions.forEach((item, qIdx) => {
+    const sel = document.querySelector(`.exam-opt-btn[data-q="${qIdx}"].selected`);
+    if (!sel) { unanswered++; return; }
+    const chosen = Number(sel.dataset.a);
+    document.querySelectorAll(`.exam-opt-btn[data-q="${qIdx}"]`).forEach(b => {
+      b.classList.remove("correct-ans", "wrong-ans");
+      if (Number(b.dataset.a) === item.c) b.classList.add("correct-ans");
+    });
+    if (chosen === item.c) score++;
+    else sel.classList.add("wrong-ans");
+  });
+
+  const box = document.getElementById("examResultBox");
+  if (unanswered > 0) {
+    box.style.color = "#ffd166";
+    box.textContent = `أجب عن جميع الأسئلة أولاً (متبقي ${unanswered}).`;
+    return;
+  }
+
+  const pts = score * EXAM_PER_QUESTION_PTS;
+  if (score > (examScores[currentExam] || 0)) examScores[currentExam] = score;
+  if (score >= 3 && !examsPassed.includes(currentExam)) examsPassed.push(currentExam);
+  save();
+  box.style.color = score >= 3 ? "#35c58b" : "#ff6b6b";
+  box.textContent = `حصلت على ${pts} نقطة (${score}/5 أسئلة صحيحة) — ${score >= 3 ? "ناجح في الفرض" : "تحتاج 3 إجابات صحيحة على الأقل"}.`;
+}
+
 function resetProgress() {
-  if (confirm("هل تريد فعلاً إعادة ضبط جميع نقاطك والدروس المكتملة؟")) {
-    completed = []; quizPassed = []; practicalPassed = []; points = 0;
+  if (confirm("هل تريد إعادة ضبط جميع النقاط والتقدم؟")) {
+    completed = []; quizPassed = []; practicalPassed = []; examsPassed = []; examScores = {}; wokwiLinks = {};
     save();
     renderAll();
   }
@@ -235,11 +593,29 @@ document.getElementById("navLessons").addEventListener("click", () => showPage("
 document.getElementById("navProgress").addEventListener("click", () => showPage("progress"));
 document.getElementById("navAbout").addEventListener("click", () => showPage("about"));
 document.getElementById("startBtn").addEventListener("click", () => showPage("lessons"));
+document.getElementById("goExamsBtn").addEventListener("click", () => {
+  currentFilter = "exams";
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.filter === "exams"));
+  showPage("lessons");
+});
 document.getElementById("backLessonsBtn").addEventListener("click", () => showPage("lessons"));
+document.getElementById("backFromExamBtn").addEventListener("click", () => showPage("lessons"));
 document.getElementById("resetBtn").addEventListener("click", resetProgress);
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    currentFilter = btn.dataset.filter;
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderAll();
+  });
+});
+
 document.addEventListener("click", e => {
-  const btn = e.target.closest(".open-lesson-btn");
-  if (btn) openLesson(Number(btn.dataset.index));
+  const lBtn = e.target.closest(".open-lesson-btn");
+  if (lBtn) openLesson(Number(lBtn.dataset.index));
+  const eBtn = e.target.closest(".open-exam-btn");
+  if (eBtn) openExam(Number(eBtn.dataset.exam));
 });
 
 renderAll();
